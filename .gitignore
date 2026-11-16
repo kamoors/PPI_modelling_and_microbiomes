@@ -1,0 +1,19 @@
+# Local generated outputs and configuration
+results/*
+!results/README.md
+config/local.R
+.Rhistory
+.RData
+.Rproj.user/
+Rplots.pdf
+*.Rproj
+*.log
+*.tmp
+~$*
+# Private/raw resources must stay outside the repository.
+private/
+data/private/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz

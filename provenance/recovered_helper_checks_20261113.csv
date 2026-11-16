@@ -1,0 +1,10 @@
+"script","helper","scientific_expression_match"
+"scripts/05_mouse_transcriptomics/05_12_primary_limma_donor_blocked.R","guess_column",TRUE
+"scripts/05_mouse_transcriptomics/05_12_primary_limma_donor_blocked.R","merge_external_meta",TRUE
+"scripts/05_mouse_transcriptomics/05_12_primary_limma_donor_blocked.R","build_combined_rnaseq_object",TRUE
+"scripts/05_mouse_transcriptomics/05_12_primary_limma_donor_blocked.R","run_limma_voom_dupCor_donor_block",TRUE
+"scripts/02_human_metabolism/02_06_kiel_blood_flux_associations.R","extract_rxns",TRUE
+"scripts/02_human_metabolism/02_06_kiel_blood_flux_associations.R","extract_one_string",TRUE
+"scripts/02_human_metabolism/02_06_kiel_blood_flux_associations.R","extract_one_fba_mat",TRUE
+"scripts/02_human_metabolism/02_06_kiel_blood_flux_associations.R","run_blood_hc3",TRUE
+"scripts/01_human_microbiome/01_05_metacardis_reaction_abundance.R","fit_all_features_hc3",TRUE

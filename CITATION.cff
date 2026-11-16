@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript and this repository."
+title: "PPI modelling and microbiomes"
+authors:
+  - family-names: Moors
+    given-names: Karlis A.
+type: software
+version: 0.5.0
+date-released: 2026-11-13
+repository-code: "https://github.com/kamoors/PPI_modelling_and_microbiomes"
+url: "https://github.com/kamoors/PPI_modelling_and_microbiomes"
+license: PolyForm-Noncommercial-1.0.0

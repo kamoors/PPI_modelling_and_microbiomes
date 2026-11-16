@@ -1,0 +1,58 @@
+[
+  {
+    "script": "scripts/01_human_microbiome/01_05_metacardis_reaction_abundance.R",
+    "source": "Metacardis/data/MetaCardis/Metacardis_react_ab_HC3_boot_noPPIExclusion_analysis.R",
+    "source_sha256": "a10fb7212e668b86bb8620f581f1ba85822945c8b61aa37132cd701eee8fea8d",
+    "packaged_sha256": "2382bdcbd2eea33447a78d1e3b01f17473a41a8d230c64cc9497a60c818fc468",
+    "note": "Filesystem adaptation and primary branch selection; validated reconstructions and scope are documented in docs/SOURCE_UPDATES_20261113.md."
+  },
+  {
+    "script": "scripts/01_human_microbiome/01_10_metacardis_metabolite_secretion.R",
+    "source": "Metacardis/data/MetaCardis/Metacardis_mg_sec_HC3_boot.R",
+    "source_sha256": "a250b14b27e3641a2e98d8e4da48fd8f1186fa2cb1431defab3e3e98f6645cf8",
+    "packaged_sha256": "f1f8cf3e7c9a08cbd537decad84493b451cb7a272be7eeeafe98433aa8f52541",
+    "note": "Filesystem adaptation and primary branch selection; validated reconstructions and scope are documented in docs/SOURCE_UPDATES_20261113.md."
+  },
+  {
+    "script": "scripts/02_human_metabolism/02_06_kiel_blood_flux_associations.R",
+    "source": "Metacardis/data/WBM/Kiel_WBM_blood_data_analysis.R",
+    "source_sha256": "8c829da6c16a7ebfcacdb0b417894b19ed3d3c09c4cfda2e0a4aa97a4b585af1",
+    "packaged_sha256": "d66e887c298f0333c938361af33b1705a09fdf76904516fd0f44251032cb1c7c",
+    "note": "Filesystem adaptation and primary branch selection; validated reconstructions and scope are documented in docs/SOURCE_UPDATES_20261113.md."
+  },
+  {
+    "script": "scripts/05_mouse_transcriptomics/05_12_primary_limma_donor_blocked.R",
+    "source": "Validation/Mouse_RNASeq/Mouse_PPI_limma_deseq2.R",
+    "source_sha256": "7e3badc5fe0b690b97abc38e312f8e60f7fe0ad9cf8a78f1030a649c596bb69d",
+    "packaged_sha256": "fb5efbf05773335324215e9a4691ca497d2dd463296aba626226447baa4b882b",
+    "note": "Filesystem adaptation and primary branch selection; validated reconstructions and scope are documented in docs/SOURCE_UPDATES_20261113.md."
+  },
+  {
+    "script": "scripts/01_human_microbiome/01_11_meta_analyse_reaction_abundance.R",
+    "source": "Metacardis/data/MetaCardis/Focus_Metacardis_react_ab_comparison_and_plots.R",
+    "source_sha256": "c9435e8b2353b819a4c30ae6ab34d63890084d63c9c568366eca96e00b59aeed",
+    "packaged_sha256": "ecdbb8220ac9614080a24deec5eb9a656ca653fb1aa8612efa4a30d2e4b3e1ff",
+    "note": "See documented source reconstruction, path changes or removal of unreported sex analyses."
+  },
+  {
+    "script": "scripts/01_human_microbiome/01_12_meta_analyse_predicted_secretion.R",
+    "source": "Metacardis/data/MetaCardis/Focus_Metacardis_mg_sec_comparison_and_plots.R",
+    "source_sha256": "d18e363521db975c43aa97e41fa7a06f3b6e150ea27a93d8b89c46fba5e05cee",
+    "packaged_sha256": "3afc8d59c7252e8060897956b21fb92706d3f857bf7bda210f286bfbef814d96",
+    "note": "See documented source reconstruction, path changes or removal of unreported sex analyses."
+  },
+  {
+    "script": "scripts/02_human_metabolism/s02_00_construct_metacardis_wbm.m",
+    "source": "outputs/model_construction_recovery_20261113/Metacardis_WBM_construction_received.m",
+    "source_sha256": "71d06fae2fcf284e3700f39ab5df6a91922bed08aacdb598d69641da529eda8f",
+    "packaged_sha256": "4d14c1b029b00dfcdadb8cbbcd6f7fdff65a77bde4cac9ef5b4b7cfdf9fad103",
+    "note": "See documented source reconstruction, path changes or removal of unreported sex analyses."
+  },
+  {
+    "script": "scripts/02_human_metabolism/02_01_metacardis_blood_flux_associations.R",
+    "source": "Metacardis/data/WBM/Metacardis_WBM_blood_data_analysis_v2_new_models.R",
+    "source_sha256": "a4b576b7592f387b70174105218fbea2c043e45a75ae5c1833f1f7c58cb89fa4",
+    "packaged_sha256": "bd1c67cc42fd17394bfcaa162c726290c3bca01d413662120bfa7554dbccf2fa",
+    "note": "See documented source reconstruction, path changes or removal of unreported sex analyses."
+  }
+]

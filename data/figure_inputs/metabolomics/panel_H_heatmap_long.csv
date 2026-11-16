@@ -1,0 +1,31 @@
+Metabolite_raw,Metabolite,effect,P_value,FDR,Dataset,significance_source
+3-(3-Hydroxyphenyl)propanoic acid,3-HPP,2.7953475930429525,0.0010636470299323,0.03741178456754705,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+o- or p-cresol sulfate,O- or p-cresol sulfate,-2.2651071567659113,0.00136937049477629,0.03741178456754705,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+3-(4-Hydroxyphenyl)propionic acid,4-HPPA,1.782316300649092,6.944726922310942e-5,0.01702232768136737,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 14:1,FA 14:1,1.5920981169252284,6.825915266664258e-4,0.035904314302654,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+3-Phenylpropionic acid,3-Phenylpropionic acid,-1.4640452895696008,0.00355730348321613,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+3-Hydroxydodecanoic acid,3-Hydroxydodecanoic acid,1.3377713584795947,0.00456071375980483,0.05711751042041291,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+3-Hydroxydecanoic acid,3-Hydroxydecanoic acid,1.1967626087210392,0.00410044954264712,0.05392091148580972,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+3-Hydroxytetradecanoic acid,3-Hydroxytetradecanoic acid,1.1901905692008383,0.00244215296530056,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+N-Cinnamoylglycine,N-Cinnamoylglycine,-1.158831125549468,0.00262429950782111,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+3-hydroxytetradecenoic acid,3-Hydroxytetradecenoic acid,1.1334030560768735,0.00910188568098341,0.07979319780328795,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 14:1,CAR 14:1,1.060570767538163,0.00348705684492917,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 16:1,CAR 16:1,0.9388030720155256,0.0014225013143554,0.03741178456754705,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 16:3,FA 16:3,0.9090694223401804,0.0033295754675784,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 16:1,FA 16:1,0.8703758800586044,5.365260386496674e-4,0.03527658704121563,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 12:0,FA 12:0,0.8152010141655825,4.4691063685903736e-4,0.03527658704121563,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 10:0,CAR 10:0,0.7989566143552911,0.00116898046089401,0.03741178456754705,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 14:2,CAR 14:2,0.7230225799786981,0.003996843779678,0.05392091148580972,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 16:2,CAR 16:2,0.7037064322273541,0.00821038454166738,0.0752750138334119,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 16:3,CAR 16:3,0.7006958448761688,0.00683725433111202,0.07481984784776827,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 19:1,FA 19:1,0.6994945189504154,0.00306297315009649,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 20:3,FA 20:3,0.6855947985622898,1.294473587936682e-4,0.01702232768136737,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 12:0,CAR 12:0,0.6660234062071366,0.00276681958986499,0.0519761564492135,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 14:0,FA 14:0,0.6147002602457705,0.00779207945487848,0.0752750138334119,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 12:1,FA 12:1,0.6132250106184348,0.00830028669645986,0.0752750138334119,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 17:1,FA 17:1,0.6116899133931978,0.00115595553099433,0.03741178456754705,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+alpha linolenic acid,Alpha linolenic acid,0.5923146650499443,0.00790849346028886,0.0752750138334119,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 19:2,FA 19:2,0.5737309056124283,0.00481653531249102,0.05757949032659724,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 18:3,CAR 18:3,0.5366854824780172,0.00212757833829803,0.05086846390658022,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+CAR 14:0,CAR 14:0,0.5308929445569233,0.00688457742093948,0.07481984784776827,LCMS (Serum),Mouse-level limma + duplicateCorrelation
+FA 22:4,FA 22:4,0.4092723260679844,0.00711215283724032,0.07481984784776827,LCMS (Serum),Mouse-level limma + duplicateCorrelation

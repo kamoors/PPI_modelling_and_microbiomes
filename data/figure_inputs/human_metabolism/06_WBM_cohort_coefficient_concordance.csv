@@ -1,0 +1,7 @@
+metric,value
+Number of reactions,299
+Pearson correlation,0.6037993966320924
+Spearman correlation,0.4856703553231128
+Same-direction fraction,0.7157190635451505
+Robust reactions,75
+Robust same-direction fraction,1

@@ -1,0 +1,17 @@
+sample_id,donor,Group
+Mouse_01,PPI_1,PPI
+Mouse_02,PPI_1,PPI
+Mouse_03,Ctrl_1,Ctrl
+Mouse_04,Ctrl_1,Ctrl
+Mouse_05,PPI_2,PPI
+Mouse_06,PPI_2,PPI
+Mouse_07,Ctrl_3,Ctrl
+Mouse_08,PPI_1,PPI
+Mouse_09,PPI_3,PPI
+Mouse_10,PPI_3,PPI
+Mouse_11,PPI_3,PPI
+Mouse_12,Ctrl_3,Ctrl
+Mouse_13,Ctrl_3,Ctrl
+Mouse_14,Ctrl_2,Ctrl
+Mouse_15,Ctrl_2,Ctrl
+Mouse_16,Ctrl_2,Ctrl

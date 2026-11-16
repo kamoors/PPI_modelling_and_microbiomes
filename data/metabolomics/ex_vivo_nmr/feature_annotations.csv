@@ -1,0 +1,52 @@
+feature_id,original_metabolite,canonical_metabolite,ppm,analysis_group,group_label,group_type,confidence,interpretation_note,include_feature_level,include_group_level
+CLASSY1124,trimethylamine,trimethylamine,9.9885,trimethylamine,trimethylamine,metabolite,standard,,TRUE,TRUE
+CLASSY1068,formate,formate,8.4605,formate,formate,metabolite,standard,,TRUE,TRUE
+CLASSY1038,hypoxanthine,hypoxanthine,8.192,hypoxanthine,hypoxanthine,metabolite,standard,,TRUE,TRUE
+CLASSY978,tryptophan,tryptophan,7.72975,tryptophan,tryptophan,metabolite,standard,,TRUE,TRUE
+CLASSY940,phenylalanine,phenylalanine,7.4235,phenylalanine,phenylalanine,metabolite,standard,,TRUE,TRUE
+CLASSY908,his,histidine,7.101,histidine,histidine,metabolite,standard,,TRUE,TRUE
+CLASSY884,tyrosine,tyrosine,6.91375,tyrosine,tyrosine,metabolite,standard,,TRUE,TRUE
+CLASSY773,uracil,uracil,5.8045,uracil,uracil,metabolite,standard,,TRUE,TRUE
+CLASSY634,tartrate?,tartrate?,4.33475,tartrate?,tartrate?,metabolite,standard,,TRUE,TRUE
+CLASSY612,pyroglutamate,pyroglutamate,4.18125,pyroglutamate_4.18,"pyroglutamate, 4.18-ppm resonance",pyroglutamate_resonance_group,high,Highly concordant pair and the strongest-supported pyroglutamate resonance group.,TRUE,TRUE
+CLASSY611,pyroglutamate,pyroglutamate,4.174,pyroglutamate_4.18,"pyroglutamate, 4.18-ppm resonance",pyroglutamate_resonance_group,high,Highly concordant pair and the strongest-supported pyroglutamate resonance group.,TRUE,TRUE
+CLASSY605,lactate2,lactate,4.1245,lactate,lactate,metabolite,standard,,TRUE,TRUE
+CLASSY535,ethanol,ethanol,3.6595,ethanol,ethanol,metabolite,standard,,TRUE,TRUE
+CLASSY534,ethanol,ethanol,3.65075,ethanol,ethanol,metabolite,standard,,TRUE,TRUE
+CLASSY519,glycine,glycine,3.567,glycine,glycine,metabolite,standard,,TRUE,TRUE
+CLASSY474,betaine,betaine,3.2565,betaine,betaine,metabolite,standard,,TRUE,TRUE
+CLASSY466,choline,choline,3.18825,choline,choline,metabolite,standard,,TRUE,TRUE
+CLASSY425,3-hydroxyphenylpropionate,3-hydroxyphenylpropionate,2.886,3-hydroxyphenylpropionate,3-hydroxyphenylpropionate,metabolite,standard,,TRUE,TRUE
+CLASSY415,aspartate,aspartate,2.826,aspartate,aspartate,metabolite,standard,,TRUE,TRUE
+CLASSY390,methionine,methionine,2.649,methionine,methionine,metabolite,standard,,TRUE,TRUE
+CLASSY374,citrate,citrate,2.5485,citrate,citrate,metabolite,standard,,TRUE,TRUE
+CLASSY355,succinate,succinate,2.40875,succinate_2.41,"succinate, 2.41-ppm resonance",metabolite_resonance,moderate,Retained as the primary succinate resonance and not combined with CLASSY254.,TRUE,TRUE
+CLASSY349,glutamate,glutamate,2.35975,glutamate,glutamate,metabolite,standard,,TRUE,TRUE
+CLASSY278,acetate,acetate,1.9255,acetate,acetate,metabolite,standard,,TRUE,TRUE
+CLASSY270,pyroglutamate,pyroglutamate,1.87,pyroglutamate_1.86,"pyroglutamate, 1.86-ppm resonance",pyroglutamate_resonance_group,low,Candidate local multiplet; member features show only moderate concordance. Interpret cautiously.,TRUE,TRUE
+CLASSY268,pyroglutamate,pyroglutamate,1.85625,pyroglutamate_1.86,"pyroglutamate, 1.86-ppm resonance",pyroglutamate_resonance_group,low,Candidate local multiplet; member features show only moderate concordance. Interpret cautiously.,TRUE,TRUE
+CLASSY267,pyroglutamate,pyroglutamate,1.8535,pyroglutamate_1.86,"pyroglutamate, 1.86-ppm resonance",pyroglutamate_resonance_group,low,Candidate local multiplet; member features show only moderate concordance. Interpret cautiously.,TRUE,TRUE
+CLASSY256,pyroglutamate,pyroglutamate,1.78675,pyroglutamate_1.78,"pyroglutamate, 1.78-ppm resonance",pyroglutamate_resonance_group,moderate,"Highly concordant local pair, but located in an overlap-prone spectral region.",TRUE,TRUE
+CLASSY254,succinate,succinate,1.77775,ambiguous_1.78_overlap,ambiguous 1.78-ppm overlap,ambiguous_overlap,low,Excluded from primary group-level analysis. Labelled succinate in the export but highly concordant with the local pyroglutamate 1.78-ppm envelope.,TRUE,FALSE
+CLASSY253,pyroglutamate,pyroglutamate,1.77325,pyroglutamate_1.78,"pyroglutamate, 1.78-ppm resonance",pyroglutamate_resonance_group,moderate,"Highly concordant local pair, but located in an overlap-prone spectral region.",TRUE,TRUE
+CLASSY233,5-aminopentanoate,5-aminopentanoate,1.6335,5-aminopentanoate,5-aminopentanoate,metabolite,standard,,TRUE,TRUE
+CLASSY216,isocaproate,isocaproate,1.52425,isocaproate,isocaproate,metabolite,standard,,TRUE,TRUE
+CLASSY215,isocaproate,isocaproate,1.51675,isocaproate,isocaproate,metabolite,standard,,TRUE,TRUE
+CLASSY210,alanine,alanine,1.48175,alanine,alanine,metabolite,standard,,TRUE,TRUE
+CLASSY203,isocaproate,isocaproate,1.44225,isocaproate,isocaproate,metabolite,standard,,TRUE,TRUE
+CLASSY187,lactaate,lactate,1.3305,lactate,lactate,metabolite,standard,,TRUE,TRUE
+CLASSY169,ethanol,ethanol,1.1975,ethanol,ethanol,metabolite,standard,,TRUE,TRUE
+CLASSY167,ethanol,ethanol,1.18875,ethanol,ethanol,metabolite,standard,,TRUE,TRUE
+CLASSY166,ethanol,ethanol,1.17975,ethanol,ethanol,metabolite,standard,,TRUE,TRUE
+CLASSY147,propionate,propionate,1.0595,propionate,propionate,metabolite,standard,,TRUE,TRUE
+CLASSY140,isoleucine,isoleucine,1.01725,isoleucine,isoleucine,metabolite,standard,,TRUE,TRUE
+CLASSY137,valine,valine,0.999,valine,valine,metabolite,standard,,TRUE,TRUE
+CLASSY135,alpha-aminobutyrate,alpha-aminobutyrate,0.9835,alpha-aminobutyrate,alpha-aminobutyrate,metabolite,standard,,TRUE,TRUE
+CLASSY132,leucine,leucine,0.96575,leucine,leucine,metabolite,standard,,TRUE,TRUE
+CLASSY131,leucine,leucine,0.963,leucine,leucine,metabolite,standard,,TRUE,TRUE
+CLASSY130,leucine,leucine,0.95525,leucine,leucine,metabolite,standard,,TRUE,TRUE
+CLASSY127,isoleucine,isoleucine,0.942,isoleucine,isoleucine,metabolite,standard,,TRUE,TRUE
+CLASSY118,butyrate,butyrate,0.89875,butyrate,butyrate,metabolite,standard,,TRUE,TRUE
+CLASSY114,isocaproate,isocaproate,0.87825,isocaproate,isocaproate,metabolite,standard,,TRUE,TRUE
+CLASSY111,2-methylbutyrate,2-methylbutyrate,0.861,2-methylbutyrate,2-methylbutyrate,metabolite,standard,,TRUE,TRUE
+CLASSY46,TSP,tsp,-0.00024999999999997003,reference__TSP,TSP,reference_compound,not applicable,Excluded: NMR reference/calibration compound.,FALSE,FALSE

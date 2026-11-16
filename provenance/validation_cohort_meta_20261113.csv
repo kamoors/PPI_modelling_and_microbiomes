@@ -1,0 +1,5 @@
+"table","reference","reference_rows","generated_rows","numeric_columns","numeric_mismatches","status"
+"Focus_metacardis_react_ab_meta_analysis_focusNewPPI.csv","figure_inputs/human_microbiome/reaction_abundance_meta_analysis.csv",7493,7493,21,0,"NUMERIC_MATCH"
+"reaction_abundance_meta_analysis.csv","figure_inputs/human_microbiome/reaction_abundance_meta_analysis.csv",7493,7493,21,0,"NUMERIC_MATCH"
+"Kiel_Metacardis_mg_sec_comparison_with_meta_focus_newPPI.csv","figure_inputs/human_microbiome/Kiel_MetaCardis_predicted_secretion_meta.csv",253,253,20,0,"NUMERIC_MATCH"
+"Kiel_MetaCardis_predicted_secretion_meta.csv","figure_inputs/human_microbiome/Kiel_MetaCardis_predicted_secretion_meta.csv",253,253,20,0,"NUMERIC_MATCH"

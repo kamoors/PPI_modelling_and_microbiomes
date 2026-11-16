@@ -1,0 +1,12 @@
+Metabolite_raw,Metabolite,effect,P_value,FDR,Dataset,significance_source
+Pantothenate,Pantothenate,-0.32488297681489386,0.02341082965448858,0.3082425904507663,HILIC (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+N-Butyrylglycine,N-Butyrylglycine,-0.6257858562517625,0.0181676836174811,0.3082425904507663,HILIC (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+Propionic acid,Propionic acid,-0.6550507229783373,0.02011139730042317,0.3082425904507663,HILIC (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+Isovalerate / Valerate (unresolved),Isovalerate / Valerate (unresolved),-0.6892831258373845,0.01793299518113954,0.3082425904507663,HILIC (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+3-(4-Hydroxyphenyl)propionate / 3-Phenyllactate (unresolved),4-HPPA / 3-Phenyllactate (unresolved),-2.20911416298404,0.01053422590627957,0.3082425904507663,HILIC (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+Hexanoate / 4-Methylvalerate (unresolved),Hexanoate / Isocaproate (unresolved),-3.4318484638234916,0.0053320179090922204,0.3082425904507663,HILIC (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+trimethylamine,Trimethylamine,1.3110172505816096,0.04952838336299937,0.33679300686839575,NMR (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+tryptophan,Tryptophan,1.2720457808485983,0.01541119444630507,0.2639563809524568,NMR (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+2-methylbutyrate,2-Methylbutyrate,-0.9392766845165272,0.0250033843296069,0.2639563809524568,NMR (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+alpha-aminobutyrate,Alpha-aminobutyrate,-1.09666498878715,0.01600267748167699,0.2639563809524568,NMR (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05
+isocaproate,Isocaproate,-1.2009808075821105,0.03105369187675962,0.2639563809524568,NMR (Ex vivo),Donor-blocked limma + duplicateCorrelation; displayed when nominal P < 0.05

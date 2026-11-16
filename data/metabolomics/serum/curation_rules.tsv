@@ -1,0 +1,176 @@
+Metabolite annotation	Original feature ID	Mode	Rank	Original assigned annotation	m/z	RT (min)	Consolidation outcome	Statistics	Observation	Comment	p.value
+(6Z,9Z,12Z)-octadeca-6,9,12-trienoic-acid	ID_11992	Positive	Rank2	(6Z,9Z,12Z)-octadeca-6,9,12-trienoic-acid	296.25944	16.508	retained_ambiguous_feature	valid	Three positive-mode peaks (11.23, 14.43, 16.51 min) with identical m/z		0.040749787
+(6Z,9Z,12Z)-octadeca-6,9,12-trienoic-acid	ID_7443	Positive	Rank2	(6Z,9Z,12Z)-octadeca-6,9,12-trienoic-acid	296.25918	11.2309	retained_ambiguous_feature	x	Three positive-mode peaks (11.23, 14.43, 16.51 min) with identical m/z		0.331518295
+(6Z,9Z,12Z)-octadeca-6,9,12-trienoic-acid	ID_9325	Positive	Rank2	(6Z,9Z,12Z)-octadeca-6,9,12-trienoic-acid	296.25931	14.427	retained_ambiguous_feature	x	Three positive-mode peaks (11.23, 14.43, 16.51 min) with identical m/z		0.205620187
+(R,Z)-12-hydroxyoctadec-9-enoic-acid	ID_8068	Positive	Rank2	(R,Z)-12-hydroxyoctadec-9-enoic-acid	316.28524	12.6257	merged_consensus	valid	Two closely eluting peaks (?RT = 0.23 min)		0.378357862
+(R,Z)-12-hydroxyoctadec-9-enoic-acid	ID_8199	Positive	Rank2	(R,Z)-12-hydroxyoctadec-9-enoic-acid	316.28527	12.8546	merged_consensus	valid	Two closely eluting peaks (?RT = 0.23 min)		0.355109005
+1-(9Z-Octadecenoyl)-sn-glycero-3-phosphocholine	ID_10142	Positive	Rank2	1-(9Z-Octadecenoyl)-sn-glycero-3-phosphocholine	1043.70276	14.9821	retained_ambiguous_feature	x	Detected at m/z 1043.7 and 522.4 at nearly identical RT_remove_dimer		0.236961297
+1-(9Z-Octadecenoyl)-sn-glycero-3-phosphocholine	ID_10386	Positive	Rank2	1-(9Z-Octadecenoyl)-sn-glycero-3-phosphocholine	1043.70392	15.2058	retained_ambiguous_feature	x	Detected at m/z 1043.7 and 522.4 at nearly identical RT_remove_dimer		0.045649083
+1-(9Z-Octadecenoyl)-sn-glycero-3-phosphocholine	ID_10395	Positive	Rank2	1-(9Z-Octadecenoyl)-sn-glycero-3-phosphocholine	522.35574	15.2067	retained_ambiguous_feature	valid	Detected at m/z 1043.7 and 522.4 at nearly identical RT_remove_dimer		0.122253538
+3-Hydroxytetradecanoic acid	ID_2236	Negative	Rank1	3-Hydroxytetradecanoic acid	241.18047	13.4843	retained_ambiguous_feature	valid	Two negative-mode ions differ by ~2 Da	rename_3-hydroxytetradecenoic acid	0.001186964
+3-Hydroxytetradecanoic acid	ID_2444	Negative	Rank1	3-Hydroxytetradecanoic acid	243.19617	14.0411	retained_ambiguous_feature	valid	Two negative-mode ions differ by ~2 Da		0.000271096
+3-Indolepropionic acid	ID_5942	Positive	Rank1	3-Indolepropionic acid_M+H	190.08696	5.9224	merged_consensus	valid	Positive and negative modes match (RT ~5.93 min)		0.47580255
+3-Indolepropionic acid	ID_1283	Negative	Rank1	3-Indolepropionic acid	188.07147	5.9288	merged_consensus	x	Positive and negative modes match (RT ~5.93 min)		0.535261382
+7-oxoDCA	ID_7314	Positive	Rank1	7-oxoDCA_M+NH4	424.3059	10.9179	merged_consensus	valid	Positive and negative modes match (RT ~10.92 min)		0.86094077
+7-oxoDCA	ID_1652	Negative	Rank1	7-oxoDCA	405.26359	10.9246	merged_consensus	x	Positive and negative modes match (RT ~10.92 min)		0.972242724
+9-Octadecenamide, (Z)-	ID_12765	Positive	Rank2	9-Octadecenamide, (Z)-	563.55075	17.0521	"merged_consensus; retained_ambiguous_feature"	x	Monomer and dimer detected with nearly identical RT_remove_dimer		0.081827286
+9-Octadecenamide, (Z)-	ID_12806	Positive	Rank2	9-Octadecenamide, (Z)-	282.28038	17.0586	"merged_consensus; retained_ambiguous_feature"	valid	Monomer and dimer detected with nearly identical RT_remove_dimer		0.1388583
+9-Octadecenamide, (Z)-	ID_13003	Positive	Rank2	9-Octadecenamide, (Z)-	282.27999	17.1791	"merged_consensus; retained_ambiguous_feature"	valid	Monomer and dimer detected with nearly identical RT_remove_dimer		0.135171713
+9-Octadecenamide, (Z)-	ID_13037	Positive	Rank2	9-Octadecenamide, (Z)-	563.55081	17.1823	"merged_consensus; retained_ambiguous_feature"	x	Monomer and dimer detected with nearly identical RT_remove_dimer		0.082333485
+alpha-TMCA_beta-TMCA	ID_6141	Positive	Rank1	alpha-TMCA_beta-TMCA_M+H	516.29828	7.1599	merged_consensus	x	H+, NH4+, and negative ion all co-elute		0.209201989
+alpha-TMCA_beta-TMCA	ID_6145	Positive	Rank1	alpha-TMCA_beta-TMCA_M+NH4	533.32473	7.1632	merged_consensus	x	H+, NH4+, and negative ion all co-elute		0.205935085
+alpha-TMCA_beta-TMCA	ID_1351	Negative	Rank1	alpha-TMCA_beta-TMCA	514.28348	7.1753	merged_consensus	valid	H+, NH4+, and negative ion all co-elute		0.215531894
+CAR 14:1	ID_8206	Positive	Rank1	CAR 14:1	370.29545	12.8949	merged_consensus	valid	Two positive peaks separated by 0.14 min		0.000482251
+CAR 14:1	ID_8266	Positive	Rank1	CAR 14:1	370.29562	13.0365	merged_consensus	valid	Two positive peaks separated by 0.14 min		0.000496452
+CAR 3:0	ID_1559	Positive	Rank1	CAR 3:0	218.14014	1.0939	merged_consensus	valid	Two peaks separated by 0.24 min		0.258535456
+CAR 3:0	ID_1940	Positive	Rank1	CAR 3:0	218.13961	1.3366	merged_consensus	valid	Two peaks separated by 0.24 min		0.214363858
+Cholic Acid	ID_7265	Positive	Rank2	Cholic Acid	426.3214	10.8131	"merged_consensus; retained_ambiguous_feature"	valid	"Three positive-mode peaks (10.81, 10.96, 11.96 min); Rank1 and Rank2_renamed"	rename_beta-MCA_M+NH4	0.391791307
+Cholic Acid	ID_7336	Positive	Rank2	Cholic Acid	426.3215	10.9599	"merged_consensus; retained_ambiguous_feature"	valid	"Three positive-mode peaks (10.81, 10.96, 11.96 min); Rank1 and Rank2_renamed"	rename_alpha-MCA_M+NH4	0.52326053
+Cholic Acid	ID_7785	Positive	Rank1	Cholic Acid	426.32151	11.9629	"merged_consensus; retained_ambiguous_feature"	valid	"Three positive-mode peaks (10.81, 10.96, 11.96 min); Rank1 and Rank2_renamed"	rename_alloCA_CA_M+NH4	0.97559743
+DCA	ID_8642	Positive	Rank1	DCA_M+NH4	410.32654	13.6854	retained_ambiguous_feature	valid	Positive and negative modes match (RT ~13.69 min)		0.197232704
+DCA	ID_2309	Negative	Rank1	DCA	391.28447	13.6868	retained_ambiguous_feature	x	Positive and negative modes match (RT ~13.69 min)		0.561026454
+DL-Indole-3-lactic acid	ID_4732	Positive	Rank1	DL-Indole-3-lactic acid_M+H	206.08206	3.1556	retained_ambiguous_feature	valid	Positive and negative modes match		0.473940221
+DL-Indole-3-lactic acid	ID_1067	Negative	Rank1	DL-Indole-3-lactic acid	204.06629	3.1633	retained_ambiguous_feature	x	Positive and negative modes match		0.598374892
+FA 12:1	ID_2473	Negative	Rank2	FA 12:1	197.15444	14.1247	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.015207026
+FA 12:1	ID_2498	Negative	Rank2	FA 12:1	197.15447	14.1955	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.053137367
+FA 14:0	ID_3190	Negative	Rank2	FA 14:0	227.20115	16.3086	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.001841442
+FA 14:0	ID_3214	Negative	Rank2	FA 14:0	227.20122	16.3856	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.000175558
+FA 14:1	ID_3000	Negative	Rank2	FA 14:1	225.18547	15.5167	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		7.35466E-05
+FA 14:1	ID_3043	Negative	Rank2	FA 14:1	225.18549	15.6863	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.000280396
+FA 14:2	ID_2716	Negative	Rank2	FA 14:2	223.16995	14.6927	retained_ambiguous_feature	valid	Two peaks (?RT ?0.20 min)_isomer		0.618226298
+FA 14:2	ID_2777	Negative	Rank2	FA 14:2	223.16992	14.8942	retained_ambiguous_feature	valid	Two peaks (?RT ?0.20 min)_isomer		0.000555806
+FA 15:1	ID_3162	Negative	Rank2	FA 15:1	239.20124	16.1936	retained_ambiguous_feature	valid	Three closely eluting peaks_isomer		0.020621372
+FA 15:1	ID_3189	Negative	Rank2	FA 15:1	239.20115	16.341	retained_ambiguous_feature	valid	Three closely eluting peaks_isomer		0.087473361
+FA 15:1	ID_3235	Negative	Rank2	FA 15:1	239.20128	16.4747	retained_ambiguous_feature	valid	Three closely eluting peaks_isomer		0.170734938
+FA 15:2	ID_2194	Negative	Rank2	FA 15:2	237.18562	13.333	retained_ambiguous_feature	valid	Two peaks separated by ~1.9 min		0.265120075
+FA 15:2	ID_2913	Negative	Rank2	FA 15:2	237.18557	15.2426	retained_ambiguous_feature	valid	Two peaks separated by ~1.9 min		0.404784195
+FA 17:0	ID_3818	Negative	Rank2	FA 17:0	269.24798	18.0302	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.010219561
+FA 17:0	ID_3837	Negative	Rank2	FA 17:0	269.24806	18.1233	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.075420122
+FA 20:2	ID_3854	Negative	Rank2	FA 20:2	307.26378	18.1868	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.057700717
+FA 20:2	ID_3888	Negative	Rank2	FA 20:2	307.26363	18.3719	retained_ambiguous_feature	valid	Two closely eluting peaks_isomer		0.009848907
+FA 20:4	ID_3413	Negative	Rank1	FA 20:4	303.23226	16.9758	retained_ambiguous_feature	valid	Three peaks with mixed Rank1/Rank2_isomer		0.026047752
+FA 20:4	ID_3477	Negative	Rank2	FA 20:4	303.23227	17.0706	retained_ambiguous_feature	valid	Three peaks with mixed Rank1/Rank2_isomer		0.012021914
+FA 20:4	ID_3511	Negative	Rank1	FA 20:4	303.23236	17.1638	retained_ambiguous_feature	valid	Three peaks with mixed Rank1/Rank2_isomer		0.076375155
+Genistein	ID_5587	Positive	Rank2	Genistein	271.06092	4.5378	retained_ambiguous_feature	x	Two positive-mode peaks (4.54 and 7.15 min)_keep_one		0.744420159
+Genistein	ID_6123	Positive	Rank2	Genistein	271.06085	7.1475	retained_ambiguous_feature	valid	Two positive-mode peaks (4.54 and 7.15 min)_keep_one		0.634088501
+Hippuric acid	ID_3596	Positive	Rank2	Hippuric acid	180.06625	1.9314	merged_consensus	x	Positive and negative modes match		0.145692311
+Hippuric acid	ID_986	Negative	Rank1	Hippuric acid	178.05082	1.9347	merged_consensus	valid	Positive and negative modes match		0.100916038
+L-Leucine	ID_1947	Positive	Rank1	L-Leucine_M+H	132.10252	1.338	retained_ambiguous_feature	valid	Positive and negative modes match		0.43775843
+L-Leucine	ID_816	Negative	Rank1	L-Leucine	130.08645	1.3469	retained_ambiguous_feature	x	Positive and negative modes match		0.073130276
+LPA 18:2	ID_2396	Negative	Rank2	LPA 18:2	433.23491	13.9312	merged_consensus	valid	Two negative-mode peaks_isomer		0.338675013
+LPA 18:2	ID_2477	Negative	Rank2	LPA 18:2	433.2354	14.1272	merged_consensus	valid	Two negative-mode peaks_isomer		0.986510387
+LPC 14:0	ID_2188	Negative	Rank2	LPC 14:0	526.31386	13.2924	retained_ambiguous_feature	valid	Two negative-mode peaks_isomer		0.104157953
+LPC 14:0	ID_2261	Negative	Rank2	LPC 14:0	526.31394	13.5594	retained_ambiguous_feature	valid	Two negative-mode peaks_isomer		0.01724928
+LPC 15:0	ID_8912	Positive	Rank2	LPC 15:0	482.32378	14.0771	retained_ambiguous_feature	valid	Multiple positive and negative peaks_isomer		0.18190662
+LPC 15:0	ID_9110	Positive	Rank2	LPC 15:0	504.30552	14.1817	retained_ambiguous_feature	x	Multiple positive and negative peaks_isomer		0.887483308
+LPC 15:0	ID_2397	Negative	Rank2	LPC 15:0	540.32918	13.9332	retained_ambiguous_feature	valid	Multiple positive and negative peaks_isomer		0.512429551
+LPC 15:0	ID_2494	Negative	Rank2	LPC 15:0	540.32964	14.1883	retained_ambiguous_feature	valid	Multiple positive and negative peaks_isomer		0.787685888
+LPC 16:1	ID_2349	Negative	Rank2	LPC 16:1	552.3295	13.7807	"merged_consensus; retained_ambiguous_feature"	valid	Three negative-mode peaks_isomer		0.985278983
+LPC 16:1	ID_2429	Negative	Rank2	LPC 16:1	552.32992	14.022	"merged_consensus; retained_ambiguous_feature"	valid	Three negative-mode peaks_isomer		0.01344033
+LPC 16:1	ID_2469	Negative	Rank2	LPC 16:1	552.32969	14.0858	"merged_consensus; retained_ambiguous_feature"	valid	Three negative-mode peaks_isomer		0.015605006
+LPC 16:2	ID_8443	Positive	Rank2	LPC 16:2	492.30813	13.3725	retained_ambiguous_feature	valid	Two positive-mode peaks		0.178909704
+LPC 16:2	ID_8671	Positive	Rank2	LPC 16:2	492.30791	13.7134	retained_ambiguous_feature	valid	Two positive-mode peaks		0.275372413
+LPC 17:0	ID_10590	Positive	Rank2	LPC 17:0	532.33647	15.3824	retained_ambiguous_feature	x	Positive and negative modes agree		0.258000325
+LPC 17:0	ID_2963	Negative	Rank2	LPC 17:0	568.36099	15.3865	retained_ambiguous_feature	valid	Positive and negative modes agree		0.417818307
+LPC 17:1	ID_9283	Positive	Rank2	LPC 17:1	508.3389	14.3899	retained_ambiguous_feature	valid	Positive and negative modes differ by ~0.24 min		0.305148749
+LPC 17:1	ID_2665	Negative	Rank2	LPC 17:1	566.34491	14.6283	retained_ambiguous_feature	valid	Positive and negative modes differ by ~0.24 min		0.260882429
+LPC 18:1	ID_2826	Negative	Rank2	LPC 18:1	580.36112	14.9885	merged_consensus	valid	Two negative-mode peaks with Rank1/Rank2		0.059126033
+LPC 18:1	ID_2891	Negative	Rank1	LPC 18:1	580.36136	15.209	merged_consensus	valid	Two negative-mode peaks with Rank1/Rank2		0.013664846
+LPC 18:3	ID_2346	Negative	Rank2	LPC 18:3	576.32902	13.7714	"merged_consensus; retained_ambiguous_feature"	valid	Three negative-mode peaks		0.06916324
+LPC 18:3	ID_2368	Negative	Rank2	LPC 18:3	576.32949	13.8472	"merged_consensus; retained_ambiguous_feature"	valid	Three negative-mode peaks		0.817094473
+LPC 18:3	ID_2418	Negative	Rank2	LPC 18:3	576.32945	13.9869	"merged_consensus; retained_ambiguous_feature"	valid	Three negative-mode peaks		0.17191236
+LPC 19:0	ID_11443	Positive	Rank2	LPC 19:0	538.3859	16.1828	retained_ambiguous_feature	valid	Multiple peaks_isomer		0.20193218
+LPC 19:0	ID_3229	Negative	Rank2	LPC 19:0	596.39171	16.4389	retained_ambiguous_feature	valid	Multiple peaks_isomer		0.844165559
+LPC 19:0	ID_3268	Negative	Rank2	LPC 19:0	596.39223	16.5266	retained_ambiguous_feature	valid	Multiple peaks_isomer		0.804089357
+LPC 19:1	ID_10689	Positive	Rank2	LPC 19:1	536.37007	15.506	retained_ambiguous_feature	valid	Positive and negative RT differ by ~0.27 min		0.00723012
+LPC 19:1	ID_3072	Negative	Rank2	LPC 19:1	594.37569	15.7805	retained_ambiguous_feature	valid	Positive and negative RT differ by ~0.27 min		0.056205027
+LPC 20:3	ID_2824	Negative	Rank2	LPC 20:3	604.36117	14.9874	retained_ambiguous_feature	valid	Two negative-mode peaks_isomer		0.005497455
+LPC 20:3	ID_2930	Negative	Rank2	LPC 20:3	604.36049	15.2642	retained_ambiguous_feature	valid	Two negative-mode peaks_isomer		4.10087E-05
+LPC 20:5	ID_2337	Negative	Rank2	LPC 20:5	600.32939	13.7582	merged_consensus	valid	Two negative-mode peaks		0.010136423
+LPC 20:5	ID_2404	Negative	Rank2	LPC 20:5	600.3295	13.9599	merged_consensus	valid	Two negative-mode peaks		0.007024583
+LPC 21:0	ID_13307	Positive	Rank2	LPC 21:0	566.41717	17.4571	retained_ambiguous_feature	valid	Two positive-mode peaks		0.078672706
+LPC 21:0	ID_13440	Positive	Rank2	LPC 21:0	566.4172	17.5777	retained_ambiguous_feature	valid	Two positive-mode peaks		0.305085447
+LPC 22:5	ID_10182	Positive	Rank2	LPC 22:5	570.3535	15.0084	"merged_consensus; retained_ambiguous_feature"	valid	Six features across both modes		0.080021425
+LPC 22:5	ID_10341	Positive	Rank2	LPC 22:5	570.35416	15.1779	"merged_consensus; retained_ambiguous_feature"	valid	Six features across both modes		0.130226864
+LPC 22:5	ID_10555	Positive	Rank2	LPC 22:5	570.35263	15.3212	"merged_consensus; retained_ambiguous_feature"	x	Six features across both modes		0.036841392
+LPC 22:5	ID_9683	Positive	Rank2	LPC 22:5	570.35371	14.6839	"merged_consensus; retained_ambiguous_feature"	valid	Six features across both modes		0.289189929
+LPC 22:5	ID_2770	Negative	Rank2	LPC 22:5	628.3608	14.8833	"merged_consensus; retained_ambiguous_feature"	valid	Six features across both modes		0.161660687
+LPC 22:5	ID_2885	Negative	Rank2	LPC 22:5	628.36062	15.1855	"merged_consensus; retained_ambiguous_feature"	x	Six features across both modes		0.075148903
+LPC 23:0	ID_14227	Positive	Rank2	LPC 23:0	594.44729	18.3518	retained_ambiguous_feature	valid	Positive and negative modes agree		0.98096519
+LPC 23:0	ID_3914	Negative	Rank2	LPC 23:0	652.45392	18.5586	retained_ambiguous_feature	valid	Positive and negative modes agree		0.72826379
+LPC 24:1	ID_13914	Positive	Rank2	LPC 24:1	606.45035	18.0295	merged_consensus	valid	Two positive-mode peaks		0.741640285
+LPC 24:1	ID_14138	Positive	Rank2	LPC 24:1	606.44833	18.2334	merged_consensus	valid	Two positive-mode peaks		0.746799352
+LPE 16:0	ID_2601	Negative	Rank2	LPE 16:0	452.27718	14.4908	merged_consensus	valid	Rank1 and Rank2 at different RTs_isomer		0.744957889
+LPE 16:0	ID_2712	Negative	Rank1	LPE 16:0	452.27758	14.7382	merged_consensus	valid	Rank1 and Rank2 at different RTs_isomer		0.717779231
+LPE 18:0	ID_3038	Negative	Rank2	LPE 18:0	480.3086	15.6725	merged_consensus	valid	Rank1 and Rank2_isomer		0.90126584
+LPE 18:0	ID_3094	Negative	Rank1	LPE 18:0	480.3086	15.917	merged_consensus	valid	Rank1 and Rank2_isomer		0.769137104
+LPE 18:1	ID_2792	Negative	Rank2	LPE 18:1	478.29274	14.9325	merged_consensus	valid	Rank1 and Rank2_isomer		0.459333882
+LPE 18:1	ID_2875	Negative	Rank1	LPE 18:1	478.29297	15.1546	merged_consensus	valid	Rank1 and Rank2_isomer		0.454117274
+LPE 18:2	ID_2501	Negative	Rank2	LPE 18:2	476.27737	14.2131	merged_consensus	valid	Rank1 and Rank2_isomer		0.153357397
+LPE 18:2	ID_2595	Negative	Rank1	LPE 18:2	476.27761	14.4348	merged_consensus	valid	Rank1 and Rank2_isomer		0.24402822
+LPE 20:4	ID_2540	Negative	Rank2	LPE 20:4	500.27725	14.3359	merged_consensus	valid	Rank1 and Rank2_isomer		0.166217819
+LPE 20:4	ID_2618	Negative	Rank1	LPE 20:4	500.27742	14.5359	merged_consensus	valid	Rank1 and Rank2_isomer		0.140291116
+L-Phenylalanine	ID_2602	Positive	Rank1	L-Phenylalanine_M+H	166.08743	1.4744	retained_ambiguous_feature	valid	Positive and negative modes match		0.976159959
+L-Phenylalanine	ID_891	Negative	Rank1	L-Phenylalanine	164.07155	1.4837	retained_ambiguous_feature	x	Positive and negative modes match		0.954757462
+L-Tryptophan	ID_3157	Positive	Rank2	L-Tryptophan	188.07123	1.7125	"merged_consensus; retained_ambiguous_feature"	x	Positive and negative modes match		0.50859867
+L-Tryptophan	ID_3159	Positive	Rank1	L-Tryptophan_M+H	205.0979	1.7133	"merged_consensus; retained_ambiguous_feature"	valid	Positive and negative modes match		0.467435489
+L-Tryptophan	ID_945	Negative	Rank1	L-Tryptophan	203.08226	1.7239	"merged_consensus; retained_ambiguous_feature"	x	Positive and negative modes match		0.278137829
+Octadecanamide	ID_13558	Positive	Rank2	Octadecanamide	284.29559	17.659	retained_ambiguous_feature	valid	Monomer and dimer detected_exclude_dimer		0.50668551
+Octadecanamide	ID_13691	Positive	Rank2	Octadecanamide	567.58198	17.807	retained_ambiguous_feature	x	Monomer and dimer detected_exclude_dimer		0.157209749
+Octadecanamide	ID_13694	Positive	Rank2	Octadecanamide	284.29565	17.8081	retained_ambiguous_feature	valid	Monomer and dimer detected_exclude_dimer		0.2959514
+PC 40:9	ID_15551	Positive	Rank2	PC 40:9	828.55213	19.7688	retained_ambiguous_feature	valid	Two positive-mode peaks_isomer		0.043258969
+PC 40:9	ID_15634	Positive	Rank2	PC 40:9	828.55112	19.8722	retained_ambiguous_feature	valid	Two positive-mode peaks_isomer		0.753094795
+PC(0:0/14:0)	ID_8409	Positive	Rank2	PC(0:0/14:0)	468.30841	13.2899	merged_consensus	valid	Single-chain PC annotation_Rename as LPC 14:0		0.005931954
+PC(0:0/14:0)	ID_8555	Positive	Rank2	PC(0:0/14:0)	468.30845	13.5526	merged_consensus	valid	Single-chain PC annotation_Rename as LPC 14:0		0.022616214
+PC(0:0/16:0)	ID_10484	Positive	Rank2	PC(0:0/16:0)	496.3394	15.2695	retained_ambiguous_feature	valid	Single-chain PC annotation_Rename as LPC 16:0		0.093536248
+PC(0:0/16:0)	ID_9472	Positive	Rank2	PC(0:0/16:0)	496.33966	14.5397	retained_ambiguous_feature	valid	Single-chain PC annotation_Rename as LPC 16:0		0.696410871
+PC(0:0/20:4)	ID_10149	Positive	Rank2	PC(0:0/20:4)	544.33749	14.9839	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_Rename as LPC 20:4		0.998147707
+PC(0:0/20:4)	ID_10333	Positive	Rank2	PC(0:0/20:4)	544.33659	15.2387	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_Rename as LPC 20:4		0.465495649
+PC(0:0/20:4)	ID_9268	Positive	Rank2	PC(0:0/20:4)	544.33884	14.3813	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_Rename as LPC 20:4		0.035973411
+PC(0:0/20:4)	ID_9535	Positive	Rank2	PC(0:0/20:4)	544.33937	14.5804	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_Rename as LPC 20:4		0.16147782
+PC(14:0/22:6)	ID_15543	Positive	Rank2	PC(14:0/22:6)	778.53598	19.7647	retained_ambiguous_feature	valid	Two positive-mode peaks_isomer		0.953290609
+PC(14:0/22:6)	ID_15638	Positive	Rank2	PC(14:0/22:6)	778.53552	19.8758	retained_ambiguous_feature	valid	Two positive-mode peaks_isomer		0.336957491
+PC(16:1/0:0)	ID_8779	Positive	Rank2	PC(16:1/0:0)	494.32396	13.7758	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_isomer_Rename as LPC 16:1		0.006914011
+PC(16:1/0:0)	ID_8897	Positive	Rank2	PC(16:1/0:0)	494.32394	14.0174	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_isomer_Rename as LPC 16:1		0.006591347
+PC(16:1/0:0)	ID_9223	Positive	Rank2	PC(16:1/0:0)	494.32366	14.2952	"merged_consensus; retained_ambiguous_feature"	valid	Single-chain PC annotation_isomer_Rename as LPC 16:1		0.068438907
+PC(17:0/0:0)	ID_10215	Positive	Rank2	PC(17:0/0:0)	510.35493	15.1329	merged_consensus	valid	Single-chain PC annotation_Rename as LPC 17:0		0.899397752
+PC(17:0/0:0)	ID_10509	Positive	Rank2	PC(17:0/0:0)	510.35525	15.3807	merged_consensus	valid	Single-chain PC annotation_Rename as LPC 17:0		0.329999023
+PC(18:2/0:0)	ID_9153	Positive	Rank2	PC(18:2/0:0)	520.33963	14.2617	"merged_consensus; retained_ambiguous_feature"	valid	"Single-chain PC annotation; multiple peaks_Rename as LPC 18:2"		0.296203635
+PC(18:2/0:0)	ID_9637	Positive	Rank2	PC(18:2/0:0)	520.33921	14.6494	"merged_consensus; retained_ambiguous_feature"	valid	"Single-chain PC annotation; multiple peaks_Rename as LPC 18:2"		0.943689911
+PC(18:2/0:0)	ID_9984	Positive	Rank2	PC(18:2/0:0)	520.33878	14.89	"merged_consensus; retained_ambiguous_feature"	valid	"Single-chain PC annotation; multiple peaks_Rename as LPC 18:2"		0.347453018
+PC(18:3/0:0)	ID_8586	Positive	Rank2	PC(18:3/0:0)	518.32353	13.6149	"merged_consensus; retained_ambiguous_feature"	valid	Four positive-mode peaks_isomer_Rename as LPC 18:3		0.433065137
+PC(18:3/0:0)	ID_8717	Positive	Rank2	PC(18:3/0:0)	518.32384	13.8433	"merged_consensus; retained_ambiguous_feature"	valid	Four positive-mode peaks_isomer_Rename as LPC 18:3		0.497891587
+PC(18:3/0:0)	ID_9041	Positive	Rank2	PC(18:3/0:0)	518.32375	13.9817	"merged_consensus; retained_ambiguous_feature"	valid	Four positive-mode peaks_isomer_Rename as LPC 18:3		0.165224822
+PC(18:3/0:0)	ID_9837	Positive	Rank2	PC(18:3/0:0)	518.32088	14.8368	"merged_consensus; retained_ambiguous_feature"	valid	Four positive-mode peaks_isomer_Rename as LPC 18:3		0.23022491
+PC(19:0/0:0)	ID_11665	Positive	Rank2	PC(19:0/0:0)	538.38644	16.3029	retained_ambiguous_feature	valid	Single-chain PC annotation_Rename as LPC 19:0		0.770385831
+PC(19:0/0:0)	ID_11897	Positive	Rank2	PC(19:0/0:0)	538.3866	16.5163	retained_ambiguous_feature	valid	Single-chain PC annotation_Rename as LPC 19:0		0.804664112
+PC(20:2/0:0)	ID_10554	Positive	Rank2	PC(20:2/0:0)	548.36985	15.3301	merged_consensus	valid	Single-chain PC annotation_Rename as LPC 20:2		0.057814874
+PC(20:2/0:0)	ID_10751	Positive	Rank2	PC(20:2/0:0)	548.37065	15.5517	merged_consensus	valid	Single-chain PC annotation_Rename as LPC 20:2		0.064761745
+PC(20:3/0:0)	ID_10122	Positive	Rank2	PC(20:3/0:0)	546.35438	14.9788	"merged_consensus; retained_ambiguous_feature"	valid	Five peaks spanning >1 min_isomers_Rename as LPC 20:3		0.006572641
+PC(20:3/0:0)	ID_10264	Positive	Rank2	PC(20:3/0:0)	546.35468	15.0815	"merged_consensus; retained_ambiguous_feature"	valid	Five peaks spanning >1 min_isomers_Rename as LPC 20:3		0.003517229
+PC(20:3/0:0)	ID_10455	Positive	Rank2	PC(20:3/0:0)	546.35419	15.2613	"merged_consensus; retained_ambiguous_feature"	valid	Five peaks spanning >1 min_isomers_Rename as LPC 20:3		0.000674209
+PC(20:3/0:0)	ID_11217	Positive	Rank2	PC(20:3/0:0)	546.35192	16.0034	"merged_consensus; retained_ambiguous_feature"	valid	Five peaks spanning >1 min_isomers_Rename as LPC 20:3		0.078250254
+PC(20:3/0:0)	ID_9970	Positive	Rank2	PC(20:3/0:0)	546.35431	14.7582	"merged_consensus; retained_ambiguous_feature"	valid	Five peaks spanning >1 min_isomers_Rename as LPC 20:3		0.012836641
+PC(20:5/0:0)	ID_8699	Positive	Rank2	PC(20:5/0:0)	542.32341	13.7505	"merged_consensus; retained_ambiguous_feature"	valid	Three peaks_Rename as LPC 20:5		0.085289515
+PC(20:5/0:0)	ID_8952	Positive	Rank2	PC(20:5/0:0)	542.32358	13.9544	"merged_consensus; retained_ambiguous_feature"	valid	Three peaks_Rename as LPC 20:5		0.066285059
+PC(20:5/0:0)	ID_9433	Positive	Rank2	PC(20:5/0:0)	542.32071	14.4538	"merged_consensus; retained_ambiguous_feature"	valid	Three peaks_Rename as LPC 20:5		0.319727695
+PC(22:4/0:0)	ID_10577	Positive	Rank2	PC(22:4/0:0)	572.36984	15.289	merged_consensus	valid	Two peaks_Rename as LPC 22:4		0.014734611
+PC(22:4/0:0)	ID_10678	Positive	Rank2	PC(22:4/0:0)	572.3703	15.4796	merged_consensus	valid	Two peaks_Rename as LPC 22:4		0.012625524
+PC(22:6/0:0)	ID_10107	Positive	Rank2	PC(22:6/0:0)	568.33668	14.9726	retained_ambiguous_feature	valid	Two peaks_Rename as LPC 22:6		0.595239958
+PC(22:6/0:0)	ID_9295	Positive	Rank2	PC(22:6/0:0)	568.33863	14.3955	retained_ambiguous_feature	valid	Two peaks_Rename as LPC 22:6		0.353010517
+PE(16:0/0:0)	ID_9367	Positive	Rank2	PE(16:0/0:0)	454.29287	14.4853	retained_ambiguous_feature	valid	Single-chain PE annotation_Rename as LPE 16:0		0.343592149
+PE(16:0/0:0)	ID_9916	Positive	Rank2	PE(16:0/0:0)	454.29284	14.7299	retained_ambiguous_feature	valid	Single-chain PE annotation_Rename as LPE 16:0		0.360836566
+PE(18:1/0:0)	ID_10026	Positive	Rank2	PE(18:1/0:0)	480.30812	14.9269	merged_consensus	valid	Single-chain PE annotation_Rename as LPE 18:1		0.846239895
+PE(18:1/0:0)	ID_10446	Positive	Rank2	PE(18:1/0:0)	480.3082	15.1464	merged_consensus	valid	Single-chain PE annotation_Rename as LPE 18:1		0.936254207
+SM(d18:2/16:0)	ID_15231	Positive	Rank2	SM(d18:2/16:0)	701.5584	19.3178	retained_ambiguous_feature	valid	Two positive-mode peaks		0.833433887
+SM(d18:2/16:0)	ID_15382	Positive	Rank2	SM(d18:2/16:0)	701.55737	19.5424	retained_ambiguous_feature	valid	Two positive-mode peaks		0.100164964
+TCA	ID_6890	Positive	Rank1	TCA_M+NH4	533.32452	9.578	merged_consensus	valid	H+, NH4+, and negative ion co-elute		0.081278064
+TCA	ID_6891	Positive	Rank1	TCA_M+H	516.29799	9.5782	merged_consensus	x	H+, NH4+, and negative ion co-elute		0.086916731
+TCA	ID_1477	Negative	Rank1	TCA	514.28364	9.5859	merged_consensus	x	H+, NH4+, and negative ion co-elute		0.092952596
+TCDCA	ID_7238	Positive	Rank1	TCDCA_M+NH4	517.3298	10.739	merged_consensus	x	Positive and negative modes agree		0.128645746
+TCDCA	ID_1610	Negative	Rank1	TCDCA	498.28831	10.749	merged_consensus	valid	Positive and negative modes agree		0.179267943
+Tributyl phosphate	ID_9778	Positive	Rank2	Tributyl phosphate	267.17277	14.7124	retained_ambiguous_feature	valid	Laboratory contaminant detected		0.983390261
+Tributyl phosphate	ID_9779	Positive	Rank2	Tributyl phosphate	533.33666	14.7072	retained_ambiguous_feature	x	Laboratory contaminant detected_remove_dimer		0.867174418
+TUDCA	ID_6725	Positive	Rank1	TUDCA_M+NH4	517.32992	9.2484	"merged_consensus; retained_ambiguous_feature"	x	H+, NH4+, and negative ion co-elute		0.315462917
+TUDCA	ID_6726	Positive	Rank1	TUDCA_M+H	500.30319	9.2493	"merged_consensus; retained_ambiguous_feature"	x	H+, NH4+, and negative ion co-elute		0.463779215
+TUDCA	ID_1442	Negative	Rank1	TUDCA	498.28842	9.2607	"merged_consensus; retained_ambiguous_feature"	valid	H+, NH4+, and negative ion co-elute		0.231953412

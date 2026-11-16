@@ -1,0 +1,58 @@
+package,recorded_version,version_evidence,repository
+ALDEx2,1.42.0,recorded ALDEx2_PPI_vs_control_with_donor sessionInfo,Bioconductor
+AnnotationDbi,1.72.0,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+BiocManager,1.30.27,project renv.lock,CRAN
+Biostrings,2.78.0,project renv.lock,Bioconductor
+boot.pval,0.5,Installed DESCRIPTION metadata; package not loaded,CRAN
+broom.mixed,0.2.9.7,project renv.lock,CRAN
+car,3.1-3,Installed DESCRIPTION metadata; package not loaded,CRAN
+clusterProfiler,4.18.4,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+compositions,2.0-8,Installed DESCRIPTION metadata; package not loaded,CRAN
+cowplot,1.2.0,project renv.lock,CRAN
+dada2,UNRECORDED,not available in recovered environment records,Bioconductor
+data.table,1.18.4,project renv.lock,CRAN
+DESeq2,1.50.2,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+dplyr,1.2.1,project renv.lock,CRAN
+fgsea,1.36.2,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+forcats,1.0.1,project renv.lock,CRAN
+ggfortify,0.4.19,project renv.lock,CRAN
+ggplot2,4.0.3,project renv.lock,CRAN
+ggrepel,0.9.8,project renv.lock,CRAN
+ggsignif,0.6.4,Installed DESCRIPTION metadata; package not loaded,CRAN
+gplots,3.3.0,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,CRAN
+GSVA,UNRECORDED,not available in recovered environment records,Bioconductor
+igraph,2.3.2,project renv.lock,CRAN
+irlba,2.3.7,project renv.lock,CRAN
+limma,3.66.0,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+lme4,2.0-1,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,CRAN
+lmerTest,3.2-1,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,CRAN
+lmtest,0.9-40,project renv.lock,CRAN
+Maaslin2,UNRECORDED,not available in recovered environment records,Bioconductor
+magrittr,2.0.5,project renv.lock; explicit existing pipe import,CRAN
+MatrixGenerics,1.22.0,project renv.lock,Bioconductor
+matrixStats,1.5.0,project renv.lock,CRAN
+msigdbr,26.1.0,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,CRAN
+openxlsx,4.2.8.1,Installed DESCRIPTION metadata; package not loaded,CRAN
+org.Mm.eg.db,3.22.0,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+patchwork,1.3.2,project renv.lock,CRAN
+permute,0.9-10,project renv.lock,CRAN
+pheatmap,1.0.13,recorded RNAseq_donor_comorbidity_sensitivity sessionInfo,CRAN
+phyloseq,1.54.2,project renv.lock,Bioconductor
+purrr,1.2.2,project renv.lock,CRAN
+R.matlab,3.7.0,project renv.lock,CRAN
+ragg,1.5.2,project renv.lock,CRAN
+RColorBrewer,1.1-3,project renv.lock,CRAN
+readr,2.2.0,project renv.lock,CRAN
+readxl,1.5.0,project renv.lock,CRAN
+reshape2,1.4.5,project renv.lock,CRAN
+rlang,1.2.0,project renv.lock,CRAN
+sandwich,3.1-1,project renv.lock,CRAN
+scales,1.4.0,project renv.lock,CRAN
+statmod,1.5.2,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,CRAN
+stringr,1.6.0,project renv.lock,CRAN
+SummarizedExperiment,1.40.0,recorded 05_gene_metabolite_DESeq2_Group_Metabolite_Hallmark_Reactome sessionInfo,Bioconductor
+tibble,3.3.1,project renv.lock,CRAN
+tidyr,1.3.2,project renv.lock,CRAN
+tximport,UNRECORDED,not available in recovered environment records,Bioconductor
+vegan,2.7-5,project renv.lock,CRAN
+writexl,1.5.4,project renv.lock,CRAN

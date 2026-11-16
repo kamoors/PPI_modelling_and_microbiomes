@@ -1,0 +1,17 @@
+Sample_Name,Injektionsorder,Group,Label,Order,Separation,Color,sample_key,Donor
+"serum_blo1_ctrl3_15_1-A,1_01_69501.d",69501.d,Ctrl,sample,69423,ctrl,blue,"serum_blo1_ctrl3_15_1-a,1_01",ctrl3
+"serum_blo10_ppi2_5_1-B,2_01_69511.d",69511.d,PPI,sample,69433,ppi,red,"serum_blo10_ppi2_5_1-b,2_01",ppi2
+"serum_blo11_ppi1_1_1-B,3_01_69512.d",69512.d,PPI,sample,69434,ppi,red,"serum_blo11_ppi1_1_1-b,3_01",ppi1
+"serum_blo12_ctrl1_3_1-B,4_01_69513.d",69513.d,Ctrl,sample,69435,ctrl,blue,"serum_blo12_ctrl1_3_1-b,4_01",ctrl1
+"serum_blo13_ctrl2_19_1-B,5_01_69514.d",69514.d,Ctrl,sample,69436,ctrl,blue,"serum_blo13_ctrl2_19_1-b,5_01",ctrl2
+"serum_blo14_ctrl2_17_1-B,6_01_69515.d",69515.d,Ctrl,sample,69437,ctrl,blue,"serum_blo14_ctrl2_17_1-b,6_01",ctrl2
+"serum_blo15_ppi3_13_1-B,7_01_69516.d",69516.d,PPI,sample,69438,ppi,red,"serum_blo15_ppi3_13_1-b,7_01",ppi3
+"serum_blo16_ppi1_2_1-B,8_01_69517.d",69517.d,PPI,sample,69439,ppi,red,"serum_blo16_ppi1_2_1-b,8_01",ppi1
+"serum_blo2_ppi3_12_1-A,2_01_69502.d",69502.d,PPI,sample,69424,ppi,red,"serum_blo2_ppi3_12_1-a,2_01",ppi3
+"serum_blo3_ppi3_14_1-A,3_01_69503.d",69503.d,PPI,sample,69425,ppi,red,"serum_blo3_ppi3_14_1-a,3_01",ppi3
+"serum_blo4_ppi1_10_1-A,4_01_69504.d",69504.d,PPI,sample,69426,ppi,red,"serum_blo4_ppi1_10_1-a,4_01",ppi1
+"serum_blo5_ctrl2_18_1-A,5_01_69505.d",69505.d,Ctrl,sample,69427,ctrl,blue,"serum_blo5_ctrl2_18_1-a,5_01",ctrl2
+"serum_blo6_ctrl3_9_1-A,6_01_69506.d",69506.d,Ctrl,sample,69428,ctrl,blue,"serum_blo6_ctrl3_9_1-a,6_01",ctrl3
+"serum_blo7_ctrl1_4_1-A,7_01_69508.d",69508.d,Ctrl,sample,69430,ctrl,blue,"serum_blo7_ctrl1_4_1-a,7_01",ctrl1
+"serum_blo8_ppi2_6_1-A,8_01_69509.d",69509.d,PPI,sample,69431,ppi,red,"serum_blo8_ppi2_6_1-a,8_01",ppi2
+"serum_blo9_ctrl3_16_1-B,1_01_69510.d",69510.d,Ctrl,sample,69432,ctrl,blue,"serum_blo9_ctrl3_16_1-b,1_01",ctrl3

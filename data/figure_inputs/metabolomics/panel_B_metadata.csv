@@ -1,0 +1,25 @@
+sample_id,donor,Group,Day
+ppi2__d4,ppi2,PPI,Day 4
+ppi3__d1,ppi3,PPI,Day 1
+ppi3__d2,ppi3,PPI,Day 2
+ppi3__d3,ppi3,PPI,Day 3
+ppi3__d4,ppi3,PPI,Day 4
+ctrl1__d1,ctrl1,Ctrl,Day 1
+ctrl1__d2,ctrl1,Ctrl,Day 2
+ctrl1__d3,ctrl1,Ctrl,Day 3
+ppi1__d1,ppi1,PPI,Day 1
+ctrl1__d4,ctrl1,Ctrl,Day 4
+ctrl2__d1,ctrl2,Ctrl,Day 1
+ctrl2__d2,ctrl2,Ctrl,Day 2
+ctrl2__d3,ctrl2,Ctrl,Day 3
+ctrl2__d4,ctrl2,Ctrl,Day 4
+ctrl3__d1,ctrl3,Ctrl,Day 1
+ctrl3__d2,ctrl3,Ctrl,Day 2
+ctrl3__d3,ctrl3,Ctrl,Day 3
+ppi1__d2,ppi1,PPI,Day 2
+ctrl3__d4,ctrl3,Ctrl,Day 4
+ppi1__d3,ppi1,PPI,Day 3
+ppi1__d4,ppi1,PPI,Day 4
+ppi2__d1,ppi2,PPI,Day 1
+ppi2__d2,ppi2,PPI,Day 2
+ppi2__d3,ppi2,PPI,Day 3

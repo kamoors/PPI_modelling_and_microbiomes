@@ -1,0 +1,67 @@
+Metabolite annotation	Original feature ID	Mode	Rank	Original assigned annotation	m/z	RT (min)	Consolidation outcome	Statistics	Observation	Comment	p_adj_meta
+1-Oleoyl-rac-glycerol	ID_3243	Positive	Rank2	1-OLEOYL-RAC-GLYCEROL	357.30041	17.4318	retained_ambiguous_feature	valid	Two closely eluting peaks (17.29 and 17.43 min)		0.13201378
+1-Oleoyl-rac-glycerol	ID_3206	Positive	Rank2	1-OLEOYL-RAC-GLYCEROL	357.30033	17.2867	retained_ambiguous_feature	valid	Two closely eluting peaks (17.29 and 17.43 min)		0.13201378
+22-Hydoxy-2-hopen-1-one	ID_2558	Positive	Rank2	22-Hydoxy-2-hopen-1-one (0.768)	441.37238	15.05	retained_ambiguous_feature	valid	Rank 2 annotation with moderate library score (0.768)		0.735854247
+22-Hydoxy-2-hopen-1-one	ID_2589	Positive	Rank2	22-Hydoxy-2-hopen-1-one (0.768)	441.37258	15.1671	retained_ambiguous_feature	valid	Rank 2 annotation with moderate library score (0.768)		0.735854247
+3-dehydroCA	ID_1871	Positive	Rank1	3-dehydroCA_NH4	424.30537	11.6688	merged_consensus	valid	Positive and negative ions have matching RT (~11.66 min)		0.902963655
+3-dehydroCA	ID_1132	Negative	Rank1	3-dehydroCA	405.26348	11.6594	merged_consensus	x	Positive and negative ions have matching RT (~11.66 min)		0.79766863
+5-[(8aS)-2,5,5,8a-tetramethyl-3-oxo-4a,6,7,8-tetrahydro-4H-naphthalen-1-yl]-3-methylpentanoic acid	ID_2462	Positive	Rank2	5-[(8aS)-2,5,5,8a-tetramethyl-3-oxo-4a,6,7,8-tetrahydro-4H-naphthalen-1-yl]-3-methylpentanoic acid	321.24056	14.712	retained_ambiguous_feature	valid	Rank 2 annotation without orthogonal support		0.922000613
+5-[(8aS)-2,5,5,8a-tetramethyl-3-oxo-4a,6,7,8-tetrahydro-4H-naphthalen-1-yl]-3-methylpentanoic acid	ID_2519	Positive	Rank2	5-[(8aS)-2,5,5,8a-tetramethyl-3-oxo-4a,6,7,8-tetrahydro-4H-naphthalen-1-yl]-3-methylpentanoic acid	321.24061	14.9112	retained_ambiguous_feature	valid	Rank 2 annotation without orthogonal support		0.922000613
+7-epiCA	ID_1562	Positive	Rank1	7-epiCA_NH4	426.32103	9.9267	retained_ambiguous_feature	valid	Positive and negative ions have matching RT (~9.93 min)		0.735854247
+7-epiCA	ID_843	Negative	Rank1	7-epiCA	407.27901	9.9306	retained_ambiguous_feature	x	Positive and negative ions have matching RT (~9.93 min)		0.49215921
+7-oxoDCA	ID_1702	Positive	Rank1	7-oxoDCA_NH4	424.30546	10.92	merged_consensus	valid	Positive and negative ions have matching RT (~10.92 min)		0.661273213
+7-oxoDCA	ID_977	Negative	Rank1	7-oxoDCA	405.26376	10.9225	merged_consensus	x	Positive and negative ions have matching RT (~10.92 min)		0.590475223
+alloCA_CA	ID_1930	Positive	Rank1	alloCA_CA_NH4	426.32125	11.9645	merged_consensus	valid	Positive and negative ions have matching RT (~11.96 min)		0.809622081
+alloCA_CA	ID_1178	Negative	Rank1	alloCA_CA	407.2795	11.9616	merged_consensus	x	Positive and negative ions have matching RT (~11.96 min)		0.870621636
+alpha-MCA	ID_1689	Positive	Rank1	alpha-MCA_NH4	426.32111	10.8026	merged_consensus	valid	Positive and negative ions have matching RT (~10.80 min)		0.893822062
+alpha-MCA	ID_958	Negative	Rank1	alpha-MCA	407.27947	10.7914	merged_consensus	x	Positive and negative ions have matching RT (~10.80 min)		0.938404797
+beta-MCA	ID_1714	Positive	Rank1	beta-MCA_NH4	426.32111	10.9602	merged_consensus	valid	Positive and negative ions have matching RT (~10.96 min)		0.661273213
+beta-MCA	ID_983	Negative	Rank1	beta-MCA	407.27959	10.9563	merged_consensus	x	Positive and negative ions have matching RT (~10.96 min)		0.60668508
+CA-3-Sulfate	ID_1557	Positive	Rank1	CA-3-Sulfate	506.27723	9.9248	retained_ambiguous_feature	x	Positive and negative RTs appear exchanged	rename_CA-7S_NH4	0.993008964
+CA-3-Sulfate	ID_872	Negative	Rank1	CA-3-Sulfate	487.23618	10.1369	retained_ambiguous_feature	valid	Positive and negative RTs appear exchanged		0.035319334
+CA-7S	ID_1594	Positive	Rank1	CA-7S_NH4	506.27725	10.1439	retained_ambiguous_feature	x	Positive and negative RTs appear exchanged	rename_CA-3-Sulfate	0.10648903
+CA-7S	ID_835	Negative	Rank1	CA-7S	487.23656	9.9224	retained_ambiguous_feature	valid	Positive and negative RTs appear exchanged		0.870621636
+CDCA	ID_2209	Positive	Rank1	CDCA_NH4	410.32603	13.479	merged_consensus	valid	Positive and negative ions have matching RT (~13.48 min)		0.735854247
+CDCA	ID_1392	Negative	Rank1	CDCA	391.2842	13.478	merged_consensus	x	Positive and negative ions have matching RT (~13.48 min)		0.850831924
+DCA	ID_2233	Positive	Rank1	DCA_NH4	410.32646	13.6863	merged_consensus	x	Positive and negative ions have matching RT (~13.68 min)		0.781452707
+DCA	ID_1416	Negative	Rank1	DCA	391.28459	13.6837	merged_consensus	valid	Positive and negative ions have matching RT (~13.68 min)		0.263956103
+DCA-3-Sulfate	ID_1786	Positive	Rank1	DCA-3-Sulfate	490.28243	11.3495	merged_consensus	x	Positive and negative ions have matching RT (~11.35 min)		0.661273213
+DCA-3-Sulfate	ID_1051	Negative	Rank1	DCA-3-Sulfate	471.24137	11.3463	merged_consensus		Positive and negative ions have matching RT (~11.35 min)		0.60668508
+FA 13:0	ID_1685	Negative	Rank2	FA 13:0	213.18521	15.5723	retained_ambiguous_feature	valid	Two peaks separated by ~0.15 min		0.15490821
+FA 13:0	ID_1716	Negative	Rank2	FA 13:0	213.18522	15.7223	retained_ambiguous_feature	valid	Two peaks separated by ~0.15 min		0.15490821
+FA 18:2	ID_1677	Negative	Rank2	FA 18:2	279.23193	15.5204	retained_ambiguous_feature	x	Two peaks at 15.52 and 16.68 min		0.260423992
+FA 18:2	ID_1869	Negative	Rank2	FA 18:2	279.23195	16.6784	retained_ambiguous_feature	valid	Two peaks at 15.52 and 16.68 min		0.260423992
+FA 20:0	ID_2687	Negative	Rank2	FA 20:0	311.29462	19.2293	retained_ambiguous_feature	valid	Two peaks separated by ~0.32 min		0.144600443
+FA 20:0	ID_2830	Negative	Rank2	FA 20:0	311.29479	19.5445	retained_ambiguous_feature	valid	Two peaks separated by ~0.32 min		0.144600443
+Genistein	ID_1335	Positive	Rank2	Genistein	271.06067	7.1679	merged_consensus	valid	"Positive-mode peaks at 4.72 and 7.17 min; only the 7.17 min peak is confirmed in negative mode"		0.735854247
+Genistein	ID_1139	Positive	Rank2	Genistein	271.06077	4.7154	merged_consensus	x	"Positive-mode peaks at 4.72 and 7.17 min; only the 7.17 min peak is confirmed in negative mode"		0.735854247
+Genistein	ID_678	Negative	Rank2	Genistein	269.04482	7.1659	merged_consensus	x	"Positive-mode peaks at 4.72 and 7.17 min; only the 7.17 min peak is confirmed in negative mode"		0.921807985
+Glycitein	ID_1253	Positive	Rank2	Glycitein	285.07632	5.9276	merged_consensus	valid	Positive and negative ions have matching RT (~5.93 min)		0.902963655
+Glycitein	ID_591	Negative	Rank2	Glycitein	283.06033	5.9253	merged_consensus	x	Positive and negative ions have matching RT (~5.93 min)		0.983636377
+Linoleic acid	ID_2523	Positive	Rank2	Linoleic acid	281.24804	14.9096	retained_ambiguous_feature	x	Positive RT (14.91 min) differs from negative RT (17.20 min) by ~2.3 min		0.692198059
+Linoleic acid	ID_2004	Negative	Rank1	Linoleic acid	279.23278	17.1957	retained_ambiguous_feature	valid	Positive RT (14.91 min) differs from negative RT (17.20 min) by ~2.3 min		0.260423992
+LPC 16:0	ID_2490	Positive	Rank2	LPC 16:0	496.3393	14.8021	"merged_consensus; retained_ambiguous_feature"	valid	Multiple ions correspond to different adducts rather than different metabolites		0.809622081
+LPC 16:0	ID_2491	Positive	Rank2	LPC 16:0	518.32081	14.8021	"merged_consensus; retained_ambiguous_feature"	x	Multiple ions correspond to different adducts rather than different metabolites		0.809622081
+LPC 16:0	ID_1567	Negative	Rank2	LPC 16:0	554.34543	14.7965	"merged_consensus; retained_ambiguous_feature"	x	Multiple ions correspond to different adducts rather than different metabolites		0.983636377
+LPC 18:1	ID_2611	Positive	Rank2	LPC 18:1	544.33617	15.2159	merged_consensus	x	Positive and negative ions have matching RT (~15.21 min)		0.433782426
+LPC 18:1	ID_1629	Negative	Rank2	LPC 18:1	580.36074	15.2123	merged_consensus	valid	Positive and negative ions have matching RT (~15.21 min)		0.532639469
+LPC 18:2	ID_2395	Positive	Rank2	LPC 18:2	542.32053	14.4948	retained_ambiguous_feature	valid	Positive and negative ions have matching RT (~14.49 min)		0.331091709
+LPC 18:2	ID_1528	Negative	Rank2	LPC 18:2	578.34539	14.4907	retained_ambiguous_feature	x	Positive and negative ions have matching RT (~14.49 min)		0.260423992
+LPE 15:0	ID_2294	Positive	Rank2	LPE 15:0	440.27691	13.9742	"merged_consensus; retained_ambiguous_feature"	valid	Two positive-mode peaks with one matching negative-mode peak		0.922000613
+LPE 15:0	ID_2244	Positive	Rank2	LPE 15:0	440.2768	13.7176	"merged_consensus; retained_ambiguous_feature"	valid	Two positive-mode peaks with one matching negative-mode peak		0.922000613
+LPE 15:0	ID_1423	Negative	Rank2	LPE 15:0	438.26133	13.7139	"merged_consensus; retained_ambiguous_feature"	x	Two positive-mode peaks with one matching negative-mode peak		0.277379586
+NAGly 14:0/16:0	ID_4048	Positive	Rank2	NAGly 14:0/16:0	540.46122	19.5703	merged_consensus	valid	Positive and negative ions have matching RT (~19.57 min)		0.339780431
+NAGly 14:0/16:0	ID_2841	Negative	Rank2	NAGly 14:0/16:0	538.4467	19.5704	merged_consensus	x	Positive and negative ions have matching RT (~19.57 min)		0.193843529
+NAGly 15:0/16:0	ID_4206	Positive	Rank2	NAGly 15:0/16:0	554.47692	19.8401	merged_consensus	valid	Positive and negative ions have matching RT (~19.84 min)		0.339780431
+NAGly 15:0/16:0	ID_4211	Positive	Rank2	NAGly 15:0/16:0	571.50259	19.8399	merged_consensus	x	Positive and negative ions have matching RT (~19.84 min)		0.339780431
+Oleic acid	ID_2717	Positive	Rank2	oleic acid (0.722)	283.26382	15.5699	retained_ambiguous_feature	x	Wrong retention time between positive and negative ions		0.179733472
+Oleic acid	ID_2189	Negative	Rank1	Oleic acid	281.24829	17.9431	retained_ambiguous_feature	valid	Wrong retention time between positive and negative ions		0.983636377
+PC(0:0/18:1)	ID_2610	Positive	Rank2	"PC(0:0/18:1); [M+H]+ C26H53N1O7P1"	522.35457	15.2152	merged_consensus	valid	Single-chain PC annotation_Rename_LPC 18:1		0.735854247
+PC(0:0/18:1)	ID_2548	Positive	Rank2	"PC(0:0/18:1); [M+H]+ C26H53N1O7P1"	522.35438	14.9932	merged_consensus	valid	Single-chain PC annotation_Rename_LPC 18:1		0.735854247
+PC(18:2/0:0)	ID_2396	Positive	Rank2	"PC(18:2/0:0); [M+H]+ C26H51N1O7P1"	520.33902	14.4958	retained_ambiguous_feature	valid	Two positive-mode peaks (~14.27 and 14.50 min)		0.661273213
+PC(18:2/0:0)	ID_2352	Positive	Rank2	"PC(18:2/0:0); [M+H]+ C26H51N1O7P1"	520.33884	14.2726	retained_ambiguous_feature	valid	Two positive-mode peaks (~14.27 and 14.50 min)		0.661273213
+"ST 24:1;O4"	ID_1393	Negative	Rank2	"ST 24:1;O4"	451.30538	13.4796	retained_ambiguous_feature	x	Adduct_Bile_Acids_removed	CDCA_adduct	0.79766863
+"ST 24:1;O4"	ID_1419	Negative	Rank2	"ST 24:1;O4"	451.30551	13.6847	retained_ambiguous_feature	x	Adduct_Bile_Acids_removed	DCA_adduct	0.79766863
+TCA	ID_1516	Positive	Rank2	TAUROCHOLIC ACID	533.32428	9.6124	"merged_consensus; retained_ambiguous_feature"	valid	"Positive-mode peaks at 7.21 and 9.61 min; only the 9.61 min peak matches negative mode"		0.071638365
+TCA	ID_1337	Positive	Rank2	TAUROCHOLIC ACID	533.32432	7.2136	"merged_consensus; retained_ambiguous_feature"	x	"Positive-mode peaks at 7.21 and 9.61 min; only the 9.61 min peak matches negative mode"	rename_alpha-TMCA_beta-TMCA 	0.071638365
+TCA	ID_805	Negative	Rank1	TCA	514.2832	9.609	"merged_consensus; retained_ambiguous_feature"	x	"Positive-mode peaks at 7.21 and 9.61 min; only the 9.61 min peak matches negative mode"		0.056323066

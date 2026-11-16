@@ -1,0 +1,37 @@
+theme,display_label,reaction,met_abbr,effect,CI_low,CI_high,FDR,cluster_size,cluster_members,cross_platform_exact_name,force_plot
+Aromatic amino-acid metabolism,Dopamine 3-O-sulfate,DM_dopasf[bc],dopasf,0.0214491070290576,0.0099494654836942,0.0329487485744211,0.00403482322505372,2,Dopamine 3-O-sulfate; Norepinephrine sulfate,TRUE,TRUE
+Aromatic amino-acid metabolism,Dopamine,DM_dopa[bc],dopa,0.0442409022903333,0.0162763239146325,0.0722054806660342,0.0118208629220183,4,Normetanephrine; Norepinephrine; Norsalsolinol; Dopamine,FALSE,FALSE
+Aromatic amino-acid metabolism,Homovanillic acid,DM_homoval[bc],homoval,0.0443450743150263,0.0172453661536362,0.0714447824764165,0.0118208629220183,1,Homovanillic acid,FALSE,FALSE
+Aromatic amino-acid metabolism,"3,4-Dihydroxyphenylacetate",DM_34dhpha[bc],34dhpha,0.0443682048590303,0.0172653512004225,0.0714710585176382,0.0118208629220183,1,"3,4-Dihydroxyphenylacetate",FALSE,FALSE
+Aromatic amino-acid metabolism,"3,4-Dihydroxyphenylglycol",DM_34dhoxpeg[bc],34dhoxpeg,0.0444300050179225,0.0167047129410405,0.0721552970948044,0.0118208629220183,1,"3,4-Dihydroxyphenylglycol",FALSE,FALSE
+Aromatic amino-acid metabolism,Phenyllactate,DM_phlac[bc],phlac,0.0444399229658783,0.0148690058666832,0.0740108400650735,0.0164649427577536,2,Phenyllactate; Phenylpyruvic acid,TRUE,TRUE
+Histidine and imidazole metabolism,Histamine,DM_hista[bc],hista,0.0556054830614843,0.0293439419242517,0.0818670241987168,7.6452127570032e-4,2,1-Methylhistamine; Histamine,FALSE,FALSE
+Histidine and imidazole metabolism,Imidazoleacetate,DM_im4ac[bc],im4ac,0.0556118137427659,0.0293487460070085,0.0818748814785233,7.6452127570032e-4,2,Imidazoleacetate; Methylimidazoleacetate,FALSE,FALSE
+Histidine and imidazole metabolism,Urocanic acid,DM_urcan[bc],urcan,0.0689660820373331,0.0366762803314699,0.101255883743196,7.6452127570032e-4,1,Urocanic acid,FALSE,FALSE
+Histidine and imidazole metabolism,L-Histidine,DM_his_L[bc],his_L,0.0713965061772987,0.0380455649282742,0.104747447426323,7.6452127570032e-4,2,3-Methylhistidine; L-Histidine,FALSE,FALSE
+Histidine and imidazole metabolism,Carnosine,DM_carn[bc],carn,0.0713980091103609,0.038063257380584,0.104732760840138,7.6452127570032e-4,1,Carnosine,FALSE,FALSE
+Histidine and imidazole metabolism,Formiminoglutamic acid,DM_forglu[bc],forglu,0.0714168658501863,0.0380563341302821,0.10477739757009,7.6452127570032e-4,1,Formiminoglutamic acid,FALSE,FALSE
+Branched-chain amino-acid metabolism,Leucylleucine,DM_leuleu[bc],leuleu,0.0538818184253184,0.0257086302960729,0.0820550065545639,0.00330966352693304,1,Leucylleucine,FALSE,FALSE
+Branched-chain amino-acid metabolism,3-Methylcrotonoylglycine,DM_CE2026[bc],CE2026,0.0540816644245221,0.0258046498337544,0.0823586790152897,0.00330966352693304,1,3-Methylcrotonoylglycine,FALSE,FALSE
+Branched-chain amino-acid metabolism,L-Leucine,DM_leu_L[bc],leu_L,0.0540816649896501,0.0258046504822532,0.082358679497047,0.00330966352693304,1,L-Leucine,FALSE,FALSE
+Branched-chain amino-acid metabolism,Isobutyrylglycine,DM_CE4969[bc],CE4969,0.0586390734071274,0.025752745869705,0.0915254009445498,0.0050652622895034,1,Isobutyrylglycine,FALSE,FALSE
+Branched-chain amino-acid metabolism,L-Valine,DM_val_L[bc],val_L,0.0587290330477757,0.025826632338327202,0.0916314337572243,0.0050652622895034,2,L-Valine; α-Ketoisovalerate,FALSE,FALSE
+Branched-chain amino-acid metabolism,L-Isoleucine,DM_ile_L[bc],ile_L,0.088030895883333,0.0519693346025618,0.124092457164104,2.5612129549183e-4,2,L-Isoleucine; 3-Methyl-2-oxovalerate,FALSE,FALSE
+Lysine and aminoadipate metabolism,L-Pipecolic acid,DM_Lpipecol[bc],Lpipecol,0.0587526226322209,0.0264553957807534,0.0910498494836883,0.0049520977405324,1,L-Pipecolic acid,FALSE,FALSE
+Lysine and aminoadipate metabolism,Aminoadipic acid,DM_L2aadp[bc],L2aadp,0.0612288710600726,0.0272451516974093,0.0952125904227358,0.0049520977405324,1,Aminoadipic acid,FALSE,FALSE
+Lysine and aminoadipate metabolism,L-Lysine,DM_lys_L[bc],lys_L,0.061336049472395,0.027289028035975,0.095383070908815,0.0049520977405324,3,Acetyl-L-Lysine; Homocitrulline; L-Lysine,FALSE,FALSE
+Lysine and aminoadipate metabolism,Oxoadipic acid,DM_2oxoadp[bc],2oxoadp,0.0613511639197587,0.0252365433023913,0.0974657845371261,0.00866721509932509,2,Oxoadipic acid; 2-Hydroxyadipic Acid,FALSE,FALSE
+Other amino-acid metabolism,L-Threonine,DM_thr_L[bc],thr_L,0.0987536361674314,0.0561400422997857,0.141367230035077,4.1624305040992e-4,2,Acetyl-Threonine; L-Threonine,FALSE,FALSE
+Sulfur and glycosaminoglycan metabolism,Heparan Sulfate Proteoglycan,DM_hspg[bc],hspg,0.0114051310254545,0.00324182324969615,0.0195684388012129,0.0257007348878355,1,Heparan Sulfate Proteoglycan,FALSE,FALSE
+Sulfur and glycosaminoglycan metabolism,"Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan",DM_cspg_e[bc],cspg_e,0.0117298420467415,0.00333181643892986,0.0201278676545531,0.0257007348878355,1,"Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan",FALSE,FALSE
+Sulfur and glycosaminoglycan metabolism,Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan,DM_cspg_d[bc],cspg_d,0.0117881642206745,0.00334971687250497,0.0202266115688441,0.0257007348878355,1,Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan,FALSE,FALSE
+Sulfur and glycosaminoglycan metabolism,Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan,DM_cspg_c[bc],cspg_c,0.0119065582531674,0.00338608078219254,0.0204270357241423,0.0257007348878355,2,Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan; Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan,FALSE,FALSE
+Sulfur and glycosaminoglycan metabolism,Sulfate,DM_so4[bc],so4,0.0120502199188486,0.0034302172031626,0.0206702226345346,0.0257007348878355,1,Sulfate,FALSE,FALSE
+Sulfur and glycosaminoglycan metabolism,Sulfite,DM_so3[bc],so3,0.0120508932739729,0.00343045953203311,0.0206713270159127,0.0257007348878355,2,Sulfite; Cysteic acid,FALSE,FALSE
+"Vitamins, cofactors and redox",Superoxide,DM_o2s[bc],o2s,1.3698106706706e-4,4.36585787363584e-5,2.3030355539778e-4,0.0193653687110432,1,Superoxide,FALSE,FALSE
+"Vitamins, cofactors and redox",Ubiquinone-1,DM_q10[bc],q10,0.0414437199896187,0.016085916328978,0.0668015236502594,0.0118208629220183,1,Ubiquinone-1,FALSE,FALSE
+"Vitamins, cofactors and redox",QH2,DM_q10h2[bc],q10h2,0.0414772774818799,0.0160419531797249,0.0669126017840349,0.0118208629220183,1,QH2,FALSE,FALSE
+"Vitamins, cofactors and redox",Niacinamide,DM_ncam[bc],ncam,0.076212597365819,0.0285369711154682,0.12388822361617,0.0118208629220183,1,Niacinamide,FALSE,FALSE
+"Vitamins, cofactors and redox",Nicotinic acid mononucleotide,DM_nicrnt[bc],nicrnt,0.076219605313396,0.0285388726018554,0.123900338024937,0.0118208629220183,1,Nicotinic acid mononucleotide,FALSE,FALSE
+"Vitamins, cofactors and redox",Nicotinic acid,DM_nac[bc],nac,0.0762200112843866,0.0285392281963733,0.1239007943724,0.0118208629220183,1,Nicotinic acid,FALSE,FALSE
+Phospholipid and choline metabolism,Choline,DM_chol[bc],chol,0.0035874981704635,0.00170459176950965,0.00547040457141735,0.00330966352693304,1,Choline,FALSE,FALSE

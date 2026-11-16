@@ -1,0 +1,27 @@
+Metabolite_raw,Metabolite,effect,P_value,FDR,Dataset,significance_source
+Stercobilin,Stercobilin,-4.414343148654198,3.756314690337954e-8,5.409093154086654e-6,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+Mesobilirubinogen,Mesobilirubinogen,2.662564611023741,3.815315072783461e-6,2.747026852404092e-4,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+3-Hydroxy Stearic Acid,3-Hydroxy Stearic Acid,-1.5552075003469312,8.333476836395431e-4,0.03000051661102355,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+Urobilinogen_Urobilin,Urobilinogen_Urobilin,3.271532844707408,0.003940843830784323,0.08868848787206797,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+3-HPP,3-HPP,2.1321943940083594,4.820191271090534e-4,0.02313691810123456,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+FA 15:1,FA 15:1,-1.8184061405223817,0.005257990044756912,0.08868848787206797,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+10-Hydroxy Stearic Acid,10-Hydroxy Stearic Acid,-1.1558630952370248,0.002122173647547974,0.06111860104938166,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+3-Hydroxypalmitic acid,3-Hydroxypalmitic acid,-1.121275862474788,0.004928180213523451,0.08868848787206797,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+NAGly 13:0 / 16:0,NAGly 13:0 / 16:0,1.3120746664191134,0.007292044970374624,0.09493575681844647,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+2-Hydroxypalmitic acid,2-Hydroxypalmitic acid,-1.5271450808328295,0.007911313068203873,0.09493575681844647,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+NAGly 14:0 / 16:0,NAGly 14:0 / 16:0,1.3049749062732896,0.006158922768893609,0.08868848787206797,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+Proline,Proline,-1.2284915065677349,0.005661181430561914,0.08868848787206797,LCMS (Caecum),Combined caecum/faeces model adjusted for compartment
+Stercobilin,Stercobilin,-5.146128253377372,3.756314690337954e-8,5.409093154086654e-6,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+Mesobilirubinogen,Mesobilirubinogen,2.7920024522116513,3.815315072783461e-6,2.747026852404092e-4,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+3-HPP,3-HPP,3.2790563399342108,4.820191271090534e-4,0.02313691810123456,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+3-Hydroxy Stearic Acid,3-Hydroxy Stearic Acid,-1.0943630450752797,8.333476836395431e-4,0.03000051661102355,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+10-Hydroxy Stearic Acid,10-Hydroxy Stearic Acid,-0.8427719217712435,0.002122173647547974,0.06111860104938166,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+Proline,Proline,-1.563505394528998,0.005661181430561914,0.08868848787206797,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+2-Hydroxypalmitic acid,2-Hydroxypalmitic acid,-0.9950950365341434,0.007911313068203873,0.09493575681844647,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+NAGly 14:0 / 16:0,NAGly 14:0 / 16:0,1.1759322157736454,0.006158922768893609,0.08868848787206797,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+Urobilinogen_Urobilin,Urobilinogen_Urobilin,3.694357166274485,0.003940843830784323,0.08868848787206797,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+NAGly 13:0 / 16:0,NAGly 13:0 / 16:0,1.06636565634443,0.007292044970374624,0.09493575681844647,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+3-Hydroxypalmitic acid,3-Hydroxypalmitic acid,-0.9999642012280888,0.004928180213523451,0.08868848787206797,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+FA 15:1,FA 15:1,-1.377090060345414,0.005257990044756912,0.08868848787206797,LCMS (Faeces),Combined caecum/faeces model adjusted for compartment
+3-hydroxyphenylpropionate,3-HPP,1.531361898457801,0.004611047182965169,0.0899585509261474,NMR (Caecum),Mouse-level limma + duplicateCorrelation
+glutamine,Glutamine,1.526750593242715,0.004734660575060389,0.0899585509261474,NMR (Caecum),Mouse-level limma + duplicateCorrelation

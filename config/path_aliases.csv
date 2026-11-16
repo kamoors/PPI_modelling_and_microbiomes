@@ -1,0 +1,15 @@
+legacy_prefix,package_prefix
+Validation/16S_results/PPI_rawdata/PPI_rawdata,microbiome16s
+Validation/16S_results/PPI_rawdata,microbiome16s
+Validation/Munich Metabolomics,metabolomics
+Validation/Mouse_RNASeq,rnaseq
+Validation/CrossLayer_Correlations,integration
+Manuscript/Figures,figures
+Results/Kiel_Metacardis,human_cohorts/results
+Results/Blood_FBA,human_cohorts/blood_flux/kiel
+Bram/transfer_130444_files_9d5afaf0/mgpipRes/totalresults,human_cohorts/kiel
+Metacardis/data/MetaCardis,human_cohorts/metacardis
+Metacardis/data/WBM,human_cohorts/blood_flux/metacardis
+data/P2N_2022-006_Karlis_Moors,human_cohorts/kiel
+Metacardis/Results,human_cohorts/metacardis_results
+Metacardis/data/WBM/Blood_FBA_Kiel,human_cohorts/blood_flux/kiel_models
