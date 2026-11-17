@@ -1,3 +1,6 @@
-# Generated results
+# Results
 
-Analysis outputs are written here and ignored by Git. `output_manifest.csv` maps each logical output to its descriptive export name and producing script. Fitted models generated locally may be large; they are not part of the distributed inputs.
+Generated tables, R objects and figures are written here, grouped by analysis.
+`files.csv` lists the output paths and the scripts that produced them. The shared
+setup also uses it to pass generated files to later scripts. Keep it with the results.
+Temporary working folders are under `.work/`. Generated files are ignored by Git.

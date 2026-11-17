@@ -1,10 +1,16 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # MetaCardis predicted secretion: manuscript-matching primary HC3 model.
-# Run through run.R; inputs and exports use package-local routing.
-# Recovered secretion model with metabolomics-based exclusion restored; systolic BP retained.
+# Secretion model with metabolomics-based PPI exclusion and systolic blood pressure adjustment.
 # All 269 metabolites match the filtered MetaCardis/Results table and its 253 shared downstream metabolites.
 # Private participant inputs are required; no bootstrap or historical BASE analyses are run.
 
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "01_human_microbiome",
+  directory = "human_cohorts/metacardis",
+  script = "01_10_metacardis_metabolite_secretion.R",
+  restricted = TRUE,
+  code = {
 library(lmtest)
 library(sandwich)
 library(readxl)
@@ -12,9 +18,9 @@ library(dplyr)
 library(stringr)
 library(MatrixGenerics)
 library(tibble)
-ppi_setwd(ppi_path("Metacardis/data/MetaCardis"))
-cardis_meta <- readxl::read_excel(ppi_input("Merged_Metacardis-Study.xlsx"))
-cardis_mg <- read.csv(ppi_input("inputDiet_net_secretion_fluxes.csv"), check.names = FALSE)
+project_setwd(project_path("Metacardis/data/MetaCardis"))
+cardis_meta <- readxl::read_excel(project_input("Merged_Metacardis-Study.xlsx"))
+cardis_mg <- read.csv(project_input("inputDiet_net_secretion_fluxes.csv"), check.names = FALSE)
 rownames(cardis_mg) <- cardis_mg$`Net secretion`
 mg_sec_cardis <- cardis_mg %>% dplyr::select(-`Net secretion`)
 cardis_meta$ID <- trimws(cardis_meta$ID)
@@ -37,9 +43,9 @@ ppi_detected <- rowSums(ppi_detect_matrix, na.rm = TRUE) > 0
 ppi_measured <- ifelse(ppi_detected, "Yes", "No")
 met_covariates_all <- cardis_meta_met %>% dplyr::select(ID, Proton.pump.inhibitor) %>% as.data.frame()
 met_covariates_all$PPI_measured <- factor(ppi_measured, levels = c("No", "Yes"))
-met_covariates_all$Proton.pump.inhibitor <- factor(met_covariates_all$Proton.pump.inhibitor, levels = c("No", 
+met_covariates_all$Proton.pump.inhibitor <- factor(met_covariates_all$Proton.pump.inhibitor, levels = c("No",
     "Yes"))
-keep_met_samples <- !(met_covariates_all$Proton.pump.inhibitor == "No" & met_covariates_all$PPI_measured == 
+keep_met_samples <- !(met_covariates_all$Proton.pump.inhibitor == "No" & met_covariates_all$PPI_measured ==
     "Yes")
 met_covariates_clean <- met_covariates_all[keep_met_samples, , drop = FALSE]
 clean_ids <- met_covariates_clean$ID
@@ -57,15 +63,15 @@ colnames(boot_dat) <- rownames(cardis_mg)
 boot_dat[is.na(boot_dat)] <- 0
 boot_dat_filt <- boot_dat[, MatrixGenerics::colVars(boot_dat) > 0, drop = FALSE]
 focus_data <- as.data.frame(cardis_meta2)
-med_vars <- c("Antidiabetic.drugs", "Insulin", "Metformin", "Sulfonurea", "DPP.IV.inhibitors", "GLP1.agonists", 
-    "Anti-hypertensive.drugs", "Beta-blockers", "ACE", "AT2.inhibitor", "Calcium.blockers", "Anse.diuretics", 
-    "Potassium-.sparing.diuretic", "Thiazides", "Lipid.lowering.drugs", "Statin", "Ezetimib", "Fibrate", 
+med_vars <- c("Antidiabetic.drugs", "Insulin", "Metformin", "Sulfonurea", "DPP.IV.inhibitors", "GLP1.agonists",
+    "Anti-hypertensive.drugs", "Beta-blockers", "ACE", "AT2.inhibitor", "Calcium.blockers", "Anse.diuretics",
+    "Potassium-.sparing.diuretic", "Thiazides", "Lipid.lowering.drugs", "Statin", "Ezetimib", "Fibrate",
     "Nitrate", "Amiodarone", "Digitalic", "Aspirine", "Clopidogrel", "Coumarin")
 focus_data[med_vars] <- lapply(focus_data[med_vars], function(x) {
     x <- as.character(x)
     ifelse(x %in% c("Yes", "1"), 1, ifelse(x %in% c("No", "0"), 0, NA))
 })
-med_broad <- c("Antidiabetic.drugs", "Anti-hypertensive.drugs", "Lipid.lowering.drugs", "Nitrate", "Amiodarone", 
+med_broad <- c("Antidiabetic.drugs", "Anti-hypertensive.drugs", "Lipid.lowering.drugs", "Nitrate", "Amiodarone",
     "Digitalic", "Aspirine", "Clopidogrel", "Coumarin")
 focus_data$medication_count <- rowSums(focus_data[med_broad], na.rm = TRUE)
 focus_data$Proton.pump.inhibitor <- as.factor(focus_data$Proton.pump.inhibitor)
@@ -103,7 +109,7 @@ fit_all_features_hc3 <- function(data_in, test_df, fml, transform_y = function(x
     names(out) <- colnames(data_in)
     out
 }
-fml_full <- met ~ Proton.pump.inhibitor + Gender + `Age.(years)` + `BMI.(kg/m²)` + Nationality + `Systolic.blood.pressure.(mmHg)` + 
+fml_full <- met ~ Proton.pump.inhibitor + Gender + `Age.(years)` + `BMI.(kg/m²)` + Nationality + `Systolic.blood.pressure.(mmHg)` +
     Diabetic.status + medication_count + Metformin + Statin + Aspirine + creatinine
 y_transform <- function(x) log1p(x)
 vars_full <- all.vars(fml_full)
@@ -111,42 +117,43 @@ test_df_full <- focus_data %>% dplyr::select(all_of(vars_full[-1])) %>% as.data.
 keep_full <- complete.cases(test_df_full)
 data_in_full <- boot_dat_filt[keep_full, , drop = FALSE]
 test_df_full <- focus_data[keep_full, , drop = FALSE]
-mg_sec_glm_full <- fit_all_features_hc3(data_in = data_in_full, test_df = test_df_full, fml = fml_full, 
+mg_sec_glm_full <- fit_all_features_hc3(data_in = data_in_full, test_df = test_df_full, fml = fml_full,
     transform_y = y_transform)
-metacardis_secretion_results <- tibble(rxn = names(mg_sec_glm_full), hc3_coef = sapply(mg_sec_glm_full, 
+metacardis_secretion_results <- tibble(rxn = names(mg_sec_glm_full), hc3_coef = sapply(mg_sec_glm_full,
     function(x) {
-        if (is.null(x) || is.null(x$ct)) 
+        if (is.null(x) || is.null(x$ct))
             return(NA_real_)
         ct <- x$ct
-        if (ppi_term %in% rownames(ct)) 
+        if (ppi_term %in% rownames(ct))
             ct[ppi_term, "Estimate"]
         else NA_real_
     }), hc3_se = sapply(mg_sec_glm_full, function(x) {
-    if (is.null(x) || is.null(x$ct)) 
+    if (is.null(x) || is.null(x$ct))
         return(NA_real_)
     ct <- x$ct
-    if (ppi_term %in% rownames(ct)) 
+    if (ppi_term %in% rownames(ct))
         ct[ppi_term, "Std. Error"]
     else NA_real_
 }), hc3_p = sapply(mg_sec_glm_full, function(x) {
-    if (is.null(x) || is.null(x$ct)) 
+    if (is.null(x) || is.null(x$ct))
         return(NA_real_)
     ct <- x$ct
-    if (ppi_term %in% rownames(ct)) 
+    if (ppi_term %in% rownames(ct))
         ct[ppi_term, "Pr(>|t|)"]
     else NA_real_
 }), hc3_df = sapply(mg_sec_glm_full, function(x) {
-    if (is.null(x) || is.null(x$fit)) 
+    if (is.null(x) || is.null(x$fit))
         return(NA_real_)
     x$fit$df.residual
-})) %>% mutate(hc3_crit = qt(0.975, df = hc3_df), hc3_ci_low = hc3_coef - hc3_crit * hc3_se, hc3_ci_high = hc3_coef + 
+})) %>% mutate(hc3_crit = qt(0.975, df = hc3_df), hc3_ci_low = hc3_coef - hc3_crit * hc3_se, hc3_ci_high = hc3_coef +
     hc3_crit * hc3_se, hc3_fdr = p.adjust(hc3_p, method = "fdr")) %>% arrange(hc3_fdr, hc3_p)
-secretion_annotations <- read.csv(ppi_input(ppi_path("annotations/metacardis_secretion_annotations.csv")), 
+secretion_annotations <- read.csv(project_input(project_path("annotations/metacardis_secretion_annotations.csv")),
     check.names = FALSE)
-metacardis_secretion_results <- merge(metacardis_secretion_results, secretion_annotations, by = "rxn", 
+metacardis_secretion_results <- merge(metacardis_secretion_results, secretion_annotations, by = "rxn",
     sort = FALSE)
-metacardis_secretion_results <- metacardis_secretion_results[order(metacardis_secretion_results$X), c("X", 
-    "rxn", "metabolite_name", "hc3_coef", "hc3_se", "hc3_p", "hc3_df", "hc3_crit", "hc3_ci_low", "hc3_ci_high", 
+metacardis_secretion_results <- metacardis_secretion_results[order(metacardis_secretion_results$X), c("X",
+    "rxn", "metabolite_name", "hc3_coef", "hc3_se", "hc3_p", "hc3_df", "hc3_crit", "hc3_ci_low", "hc3_ci_high",
     "hc3_fdr", "metabr")]
-write.csv(metacardis_secretion_results, ppi_output(ppi_path("human_cohorts/metacardis_results/Metacardis_mgsec_fullFormula_totalMedicationAdjusted_noPPIExcludedByMetabolomics_preBoot.csv"), 
+write.csv(metacardis_secretion_results, project_output(project_path("human_cohorts/metacardis_results/Metacardis_mgsec_fullFormula_totalMedicationAdjusted_noPPIExcludedByMetabolomics_preBoot.csv"),
     name = "metacardis_predicted_secretion_hc3.csv"), row.names = FALSE)
+}))

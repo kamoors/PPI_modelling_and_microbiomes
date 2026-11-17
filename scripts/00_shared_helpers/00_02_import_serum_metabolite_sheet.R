@@ -1,8 +1,5 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Serum import function
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
-# Writes generated files under results/; bundled inputs are read-only.
 
 process_metabolite_sheet <- function(data, metid, meta_cols = 9) {
     require(dplyr)

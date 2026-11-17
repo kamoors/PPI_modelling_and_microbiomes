@@ -1,19 +1,23 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Kiel ALDEx2
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
 # Human participant-level input matrices and covariates are not distributed.
-# Supply authorised data separately; see docs/RESTRICTED_DATA.md.
 
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "01_human_microbiome",
+  directory = "",
+  script = "01_01_kiel_taxonomy.R",
+  restricted = TRUE,
+  code = {
 library(dplyr)
 library(readr)
 library(stringr)
 library(ALDEx2)
 library(tibble)
-ppi_source(ppi_code("scripts/00_shared_helpers/00_01_load_kiel_metadata.R"))
-results_dir <- ppi_path("Results/Aldex2")
-dir.create(ppi_output(results_dir, directory = TRUE), showWarnings = FALSE, recursive = TRUE)
-focus_data <- cbind(data, phenotype_all_drugs_filt[, 4:16], phenoData_filt[, c(2, 8, 9, 18, 68)]) %>% 
+project_source(project_code("scripts/00_shared_helpers/00_01_load_kiel_metadata.R"))
+results_dir <- project_path("Results/Aldex2")
+dir.create(project_output(results_dir, directory = TRUE), showWarnings = FALSE, recursive = TRUE)
+focus_data <- cbind(data, phenotype_all_drugs_filt[, 4:16], phenoData_filt[, c(2, 8, 9, 18, 68)]) %>%
     as.data.frame()
 med_broad <- c("Analgesic", "Antibiotics", "Antidepressant", "Antihypertensives", "Antiphlogistic", "Antidiabetic")
 focus_data[med_broad] <- phenotype_all_drugs_filt[, med_broad]
@@ -57,43 +61,44 @@ run_aldex_full <- function(counts, covariates, model_matrix, feature_level, mc_s
     else {
         effect_out <- data.frame(feature = rownames(glm_test))
     }
-    clean_out <- glm_test_out %>% select(feature, any_of(c(paste0(ppi_term, ":Est"), paste0(ppi_term, 
-        ":SE"), paste0(ppi_term, ":t.val"), paste0(ppi_term, ":pval"), paste0(ppi_term, ":pval.holm"), 
-        paste0(ppi_term, ":pval.padj")))) %>% rename_with(~c("feature", "coef", "se", "t_value", "pval", 
+    clean_out <- glm_test_out %>% select(feature, any_of(c(paste0(ppi_term, ":Est"), paste0(ppi_term,
+        ":SE"), paste0(ppi_term, ":t.val"), paste0(ppi_term, ":pval"), paste0(ppi_term, ":pval.holm"),
+        paste0(ppi_term, ":pval.padj")))) %>% rename_with(~c("feature", "coef", "se", "t_value", "pval",
         "pval_holm", "qval")[seq_along(.x)])
-    list(clr = x, glm_test = glm_test, glm_effect = glm_effect, glm_test_out = glm_test_out, effect_out = effect_out, 
+    list(clr = x, glm_test = glm_test, glm_effect = glm_effect, glm_test_out = glm_test_out, effect_out = effect_out,
         clean_out = clean_out, model_matrix = model_matrix, formula = full_formula, feature_level = feature_level)
 }
 species_counts <- counts_filt
 species_counts <- species_counts[, keep_samples, drop = FALSE]
 colnames(species_counts) <- focus_data_full$ID
 rownames(focus_data_full) <- focus_data_full$ID
-species_results <- run_aldex_full(counts = species_counts, covariates = focus_data_full, model_matrix = mm_full, 
+species_results <- run_aldex_full(counts = species_counts, covariates = focus_data_full, model_matrix = mm_full,
     feature_level = "species", mc_samples = 256, ppi_term = "PPI1")
-write.csv(species_results$glm_test_out, ppi_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_all_results.csv"), 
+write.csv(species_results$glm_test_out, project_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_all_results.csv"),
     name = "kiel_species_ald_ex2_full_all_results.csv"), row.names = FALSE)
-write.csv(species_results$effect_out, ppi_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_effects.csv"), 
+write.csv(species_results$effect_out, project_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_effects.csv"),
     name = "kiel_species_ald_ex2_full_effects.csv"), row.names = FALSE)
-write.csv(species_results$clean_out, ppi_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_PPI_clean_results.csv"), 
+write.csv(species_results$clean_out, project_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_PPI_clean_results.csv"),
     name = "kiel_species_ald_ex2_full_ppi_clean_results.csv"), row.names = FALSE)
-write.csv(species_results$clean_out %>% filter(qval < 0.1), ppi_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_PPI_q_lt_0.1.csv"), 
+write.csv(species_results$clean_out %>% filter(qval < 0.1), project_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_PPI_q_lt_0.1.csv"),
     name = "kiel_species_ald_ex2_full_ppi_q_lt_0_1.csv"), row.names = FALSE)
-saveRDS(species_results, ppi_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_results.rds"), name = "kiel_species_ald_ex2_full_results.rds"))
-genus_anon <- read.csv(ppi_input(ppi_path("data/Community_sim/FOCUS/FOCUS/genus_counts_filt.csv")))
+saveRDS(species_results, project_output(file.path(results_dir, "Kiel_species_ALDEx2_FULL_results.rds"), name = "kiel_species_ald_ex2_full_results.rds"))
+genus_anon <- read.csv(project_input(project_path("data/Community_sim/FOCUS/FOCUS/genus_counts_filt.csv")))
 genus_counts <- genus_anon[, -1]
 rownames(genus_counts) <- genus_anon$X
 colnames(genus_counts) <- stringr::str_sub(colnames(genus_counts), start = 2)
 genus_counts <- genus_counts[, focus_data_full$ID, drop = FALSE]
-genus_results <- run_aldex_full(counts = genus_counts, covariates = focus_data_full, model_matrix = mm_full, 
+genus_results <- run_aldex_full(counts = genus_counts, covariates = focus_data_full, model_matrix = mm_full,
     feature_level = "genus", mc_samples = 256, ppi_term = "PPI1")
-write.csv(genus_results$glm_test_out, ppi_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_all_results.csv"), 
+write.csv(genus_results$glm_test_out, project_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_all_results.csv"),
     name = "kiel_genus_ald_ex2_full_all_results.csv"), row.names = FALSE)
-write.csv(genus_results$effect_out, ppi_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_effects.csv"), 
+write.csv(genus_results$effect_out, project_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_effects.csv"),
     name = "kiel_genus_ald_ex2_full_effects.csv"), row.names = FALSE)
-write.csv(genus_results$clean_out, ppi_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_PPI_clean_results.csv"), 
+write.csv(genus_results$clean_out, project_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_PPI_clean_results.csv"),
     name = "kiel_genus_ald_ex2_full_ppi_clean_results.csv"), row.names = FALSE)
-write.csv(genus_results$clean_out %>% filter(qval < 0.1), ppi_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_PPI_q_lt_0.1.csv"), 
+write.csv(genus_results$clean_out %>% filter(qval < 0.1), project_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_PPI_q_lt_0.1.csv"),
     name = "kiel_genus_ald_ex2_full_ppi_q_lt_0_1.csv"), row.names = FALSE)
-saveRDS(genus_results, ppi_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_results.rds"), name = "kiel_genus_ald_ex2_full_results.rds"))
+saveRDS(genus_results, project_output(file.path(results_dir, "Kiel_genus_ALDEx2_FULL_results.rds"), name = "kiel_genus_ald_ex2_full_results.rds"))
 message("Species significant q < 0.1: ", sum(species_results$clean_out$qval < 0.1, na.rm = TRUE))
 message("Genus significant q < 0.1: ", sum(genus_results$clean_out$qval < 0.1, na.rm = TRUE))
+}))

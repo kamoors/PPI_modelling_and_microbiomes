@@ -1,28 +1,25 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Kiel metadata preparation
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
-# Writes generated files under results/; bundled inputs are read-only.
 
 require(readr)
 require(phyloseq)
 require(readxl)
 require(dplyr)
-ppi_setwd(ppi_path("human_cohorts/kiel"))
-PPI_data <- read_xlsx(ppi_input("2016-012_POPGEN.AND.FOCUS_nondietary_data_rev_date_mod_1463S_6HL.class_2018-12-20.xlsx"))
-full_disease_phenotypes <- read_csv(ppi_input("phenoData.csv"))
-phenotype <- read_tsv(ppi_input("Phenotype.tsv"), col_names = TRUE)
-nutrition <- read_csv(ppi_input("nutrition-diabetes-full-norm.csv"), col_names = TRUE)
-phenotype_all_drugs <- read_excel(ppi_input("2016-012_POPGEN.AND.FOCUS_nondietary_data_rev_date_mod_1463S_6HL.class_2018-12-20.xlsx"), 
+project_setwd(project_path("human_cohorts/kiel"))
+PPI_data <- read_xlsx(project_input("2016-012_POPGEN.AND.FOCUS_nondietary_data_rev_date_mod_1463S_6HL.class_2018-12-20.xlsx"))
+full_disease_phenotypes <- read_csv(project_input("phenoData.csv"))
+phenotype <- read_tsv(project_input("Phenotype.tsv"), col_names = TRUE)
+nutrition <- read_csv(project_input("nutrition-diabetes-full-norm.csv"), col_names = TRUE)
+phenotype_all_drugs <- read_excel(project_input("2016-012_POPGEN.AND.FOCUS_nondietary_data_rev_date_mod_1463S_6HL.class_2018-12-20.xlsx"),
     col_names = TRUE)
 phenotype_all_drugs$old_id <- phenotype$ID[match(phenotype_all_drugs$new_id, phenotype$new_id.y)]
 phenotype_all_drugs_filt <- phenotype_all_drugs[match(phenotype$ID, phenotype_all_drugs$old_id), ]
 phenotype_all_drugs_filt <- phenotype_all_drugs_filt %>% relocate(old_id)
 rm(phenotype_all_drugs)
-phenoData <- read_excel(ppi_input("phenoData.xlsx"))
+phenoData <- read_excel(project_input("phenoData.xlsx"))
 phenoData_filt <- phenoData[match(phenotype$ID, phenoData$ID), ]
 rm(phenoData)
-coiunts <- read_csv(ppi_input("species-counts.csv"), col_names = TRUE)
+coiunts <- read_csv(project_input("species-counts.csv"), col_names = TRUE)
 counts = as.matrix(coiunts[-1, -1])
 rownames(counts) <- coiunts[-1, 1]$...1
 counts_norm = as.matrix(coiunts[-1, -1])
@@ -32,7 +29,7 @@ ind_norm <- match(phenotype$ID, rownames(counts_norm))
 counts_norm_filt <- counts_norm[ind_norm, ]
 ind_4 <- match(phenotype$ID, colnames(counts))
 counts_filt <- counts[, ind_4]
-reac_act <- readRDS(ppi_input("reakFreqsKielCohort.RDS"))
+reac_act <- readRDS(project_input("reakFreqsKielCohort.RDS"))
 ind_4 <- match(phenotype$ID, colnames(reac_act))
 reac_act_filt <- reac_act[, ind_4]
 new_id_match <- match(phenotype$new_id.y, PPI_data$new_id)
@@ -41,8 +38,8 @@ phenotype$drugs <- PPI_data$medikamente.x[new_id_match]
 phenotype$alcohol <- nutrition$`EX_etoh(e)`[id_match_nutr]
 phenotype$water <- nutrition$`EX_h2o(e)`[id_match_nutr]
 phenotype$gramm <- nutrition$gramm[id_match_nutr]
-ppi_terms <- c("omeprazol", "esomeprazol", "pantoprazol", "lansoprazol", "rabeprazol", "dexlansoprazol", 
-    "pantozol", "antra", "nexium", "nexium mups", "pantopra-q", "omep", "esomep", "patoprazol", "omepazol", 
+ppi_terms <- c("omeprazol", "esomeprazol", "pantoprazol", "lansoprazol", "rabeprazol", "dexlansoprazol",
+    "pantozol", "antra", "nexium", "nexium mups", "pantopra-q", "omep", "esomep", "patoprazol", "omepazol",
     "omeparazol")
 ppi_pattern <- paste(ppi_terms, collapse = "|")
 phenotype$PPI <- as.integer(grepl(ppi_pattern, phenotype$drugs, ignore.case = TRUE))
@@ -51,11 +48,11 @@ phenotype_all_drugs_filt$PPI <- phenotype$PPI
 ind <- match(phenotype$ID, full_disease_phenotypes$ID)
 full_disease_phenotypes <- full_disease_phenotypes[ind, ]
 rownames(phenotype) <- phenotype$ID
-statin_terms <- c("simvastatin", "atorvastatin", "pravastatin", "fluvastatin", "lovastatin", "rosuvastatin", 
-    "simvabeta", "simvahexal", "simva hexa", "simva-aristo", "simvalip", "simvastin", "simvastatin al", 
-    "simvastatin-ratiopharm", "simvastatin stada", "simvastatin qph", "simvastatin-1a pharma", "atorvastatin hexal", 
+statin_terms <- c("simvastatin", "atorvastatin", "pravastatin", "fluvastatin", "lovastatin", "rosuvastatin",
+    "simvabeta", "simvahexal", "simva hexa", "simva-aristo", "simvalip", "simvastin", "simvastatin al",
+    "simvastatin-ratiopharm", "simvastatin stada", "simvastatin qph", "simvastatin-1a pharma", "atorvastatin hexal",
     "atorvastatin stada", "pravastatin abz", "prava-q", "fluvastatin actavis", "simvasstatin", "simvstatin")
-aspirin_terms <- c("aspirin", "\\bASS\\b", "acetylsalicyl", "aspirin protect", "aspirin direkt", "aspirin c", 
+aspirin_terms <- c("aspirin", "\\bASS\\b", "acetylsalicyl", "aspirin protect", "aspirin direkt", "aspirin c",
     "aspirin komplex", "godamed")
 antiplatelet_terms <- c("clopidogrel", "plavix", "clopidogel", "clopidogrll")
 statin_pattern <- paste(statin_terms, collapse = "|")
@@ -69,11 +66,11 @@ phenotype_all_drugs_filt$STATIN <- phenotype$STATIN
 phenotype_all_drugs_filt$ASPIRIN <- phenotype$ASPIRIN
 phenotype_all_drugs_filt$ANTIPLATELET <- phenotype$ANTIPLATELET
 phenotype_all_drugs_filt$ASPIRIN_OR_ANTIPLATELET <- phenotype$ASPIRIN_OR_ANTIPLATELET
-data <- cbind.data.frame(phenotype$ID, phenotype$alcohol, phenotype$PPI, phenotype$STATIN, phenotype$ASPIRIN, 
-    phenotype$ANTIPLATELET, phenotype$ASPIRIN_OR_ANTIPLATELET, phenotype$AGE, phenotype$GENDER, phenotype$BMI_mb, 
+data <- cbind.data.frame(phenotype$ID, phenotype$alcohol, phenotype$PPI, phenotype$STATIN, phenotype$ASPIRIN,
+    phenotype$ANTIPLATELET, phenotype$ASPIRIN_OR_ANTIPLATELET, phenotype$AGE, phenotype$GENDER, phenotype$BMI_mb,
     phenotype$gramm)
 rownames(data) <- phenotype$ID
-colnames(data) <- c("ID", "alcohol", "PPI", "STATIN", "ASPIRIN", "ANTIPLATELET", "ASPIRIN_OR_ANTIPLATELET", 
+colnames(data) <- c("ID", "alcohol", "PPI", "STATIN", "ASPIRIN", "ANTIPLATELET", "ASPIRIN_OR_ANTIPLATELET",
     "Age", "Gender", "BMI", "Food")
 data$PPI <- as.factor(data$PPI)
 data$PPI <- relevel(data$PPI, ref = "0")

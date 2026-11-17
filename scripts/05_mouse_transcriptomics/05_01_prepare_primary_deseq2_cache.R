@@ -1,21 +1,25 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # DESeq2 cache creation
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
-# Writes generated files under results/; bundled inputs are read-only.
 
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "05_mouse_transcriptomics",
+  directory = "rnaseq/cache",
+  script = "05_01_prepare_primary_deseq2_cache.R",
+  restricted = FALSE,
+  code = {
 library(dplyr)
 library(readxl)
 library(DESeq2)
 # tximport object is already generated; DESeq2 imports its matrices below.
 library(readr)
-base_dir <- ppi_path("rnaseq")
-ppi_setwd(base_dir)
+base_dir <- project_path("rnaseq")
+project_setwd(base_dir)
 cache_dir <- file.path(base_dir, "cache")
-dir.create(ppi_output(cache_dir, directory = TRUE), showWarnings = FALSE)
-meta <- readxl::read_excel(ppi_input("Metadata.xlsx")) %>% dplyr::mutate(organ = sub(".*_", "", external_name), 
+dir.create(project_output(cache_dir, directory = TRUE), showWarnings = FALSE)
+meta <- readxl::read_excel(project_input("Metadata.xlsx")) %>% dplyr::mutate(organ = sub(".*_", "", external_name),
     donor = sub("(_m.*)", "", external_name), group = ifelse(grepl("^Ctrl", donor), "Ctrl", "PPI"))
-txi <- readRDS(ppi_input("Salmon_TXI_object.rds"))
+txi <- readRDS(project_input("Salmon_TXI_object.rds"))
 clean_names <- sub(".*(25Jul1866-[A-H][0-9]{2}).*", "\\1", colnames(txi$counts))
 colnames(txi$counts) <- clean_names
 colnames(txi$abundance) <- clean_names
@@ -55,7 +59,7 @@ res_list <- lapply(names(dds_list), function(org) {
 })
 names(res_list) <- organs
 # Frozen annotations preserve study labels without a live database dependency.
-gene_annotation <- readRDS(ppi_input(ppi_path("rnaseq/figure_coordinates_and_annotations.rds")))$gene_annotation
+gene_annotation <- readRDS(project_input(project_path("rnaseq/figure_coordinates_and_annotations.rds")))$gene_annotation
 map_ens_sym <- function(res) {
     ind <- match(res$gene, gene_annotation$gene)
     res$geneSymbol <- gene_annotation$geneSymbol[ind]
@@ -72,16 +76,16 @@ meta_liver <- as.data.frame(SummarizedExperiment::colData(dds_list$Liver))
 counts_list <- lapply(dds_list, function(dds) {
     DESeq2::counts(dds, normalized = FALSE)
 })
-rnaseq_cache <- list(meta = meta, organs = organs, txi = txi, dds_list = dds_list, res_list = res_list, 
+rnaseq_cache <- list(meta = meta, organs = organs, txi = txi, dds_list = dds_list, res_list = res_list,
     res_all = res_all, counts_list = counts_list, meta_brain = meta_brain, meta_colon = meta_colon, meta_liver = meta_liver)
-saveRDS(rnaseq_cache, ppi_output(file.path(cache_dir, "rnaseq_deseq2_cache.rds"), name = "primary_deseq2_cache.rds"))
-write.csv(res_all, ppi_output(file.path(cache_dir, "DESeq2_results_by_organ.csv"), name = "de_seq2_results_by_organ.csv"), 
+saveRDS(rnaseq_cache, project_output(file.path(cache_dir, "rnaseq_deseq2_cache.rds"), name = "primary_deseq2_cache.rds"))
+write.csv(res_all, project_output(file.path(cache_dir, "DESeq2_results_by_organ.csv"), name = "de_seq2_results_by_organ.csv"),
     row.names = FALSE)
-write.csv(res_list$Liver, ppi_output(file.path(cache_dir, "DESeq2_results_liver.csv"), name = "de_seq2_results_liver.csv"), 
+write.csv(res_list$Liver, project_output(file.path(cache_dir, "DESeq2_results_liver.csv"), name = "de_seq2_results_liver.csv"),
     row.names = FALSE)
-write.csv(res_list$Colon, ppi_output(file.path(cache_dir, "DESeq2_results_colon.csv"), name = "de_seq2_results_colon.csv"), 
+write.csv(res_list$Colon, project_output(file.path(cache_dir, "DESeq2_results_colon.csv"), name = "de_seq2_results_colon.csv"),
     row.names = FALSE)
-write.csv(res_list$Brain, ppi_output(file.path(cache_dir, "DESeq2_results_brain.csv"), name = "de_seq2_results_brain.csv"), 
+write.csv(res_list$Brain, project_output(file.path(cache_dir, "DESeq2_results_brain.csv"), name = "de_seq2_results_brain.csv"),
     row.names = FALSE)
 message("RNA-seq DESeq2 cache saved.")
-
+}))

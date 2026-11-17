@@ -1,7 +1,5 @@
-# Local generated outputs and configuration
 results/*
 !results/README.md
-config/local.R
 .Rhistory
 .RData
 .Rproj.user/
@@ -10,7 +8,7 @@ Rplots.pdf
 *.log
 *.tmp
 ~$*
-# Private/raw resources must stay outside the repository.
+# Keep private participant data and raw reads outside this repository.
 private/
 data/private/
 *.fastq

@@ -1,7 +1,0 @@
-"table","reference","reference_rows","generated_rows","numeric_columns","numeric_mismatches","status"
-"MetaCardis_mgpipe_reaction_abundance_cleanPPI_LOG_HC3_FULL_clean_results.csv","human_aggregate/metacardis_reaction_abundance_statistics.csv",7713,7713,8,0,"NUMERIC_MATCH"
-"Metacardis_mgsec_fullFormula_totalMedicationAdjusted_noPPIExcludedByMetabolomics_preBoot.csv","human_aggregate/metacardis_predicted_secretion_statistics.csv",269,269,8,0,"NUMERIC_MATCH"
-"Focus_metacardis_react_ab_meta_analysis_focusNewPPI.csv","figure_inputs/human_microbiome/reaction_abundance_meta_analysis.csv",7493,7493,21,0,"NUMERIC_MATCH"
-"reaction_abundance_meta_analysis.csv","figure_inputs/human_microbiome/reaction_abundance_meta_analysis.csv",7493,7493,21,0,"NUMERIC_MATCH"
-"Kiel_Metacardis_mg_sec_comparison_with_meta_focus_newPPI.csv","figure_inputs/human_microbiome/Kiel_MetaCardis_predicted_secretion_meta.csv",253,253,20,0,"NUMERIC_MATCH"
-"Kiel_MetaCardis_predicted_secretion_meta.csv","figure_inputs/human_microbiome/Kiel_MetaCardis_predicted_secretion_meta.csv",253,253,20,0,"NUMERIC_MATCH"

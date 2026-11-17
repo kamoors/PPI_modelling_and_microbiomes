@@ -1,51 +1,103 @@
 # PPI modelling and microbiomes
 
-Analysis code and processed data accompanying **Proton pump inhibitor-associated microbiomes shape systemic host responses** by Karlis A. Moors and colleagues.
+Code and processed data for *Proton pump inhibitor-associated microbiomes shape systemic host responses*, by Karlis A. Moors and colleagues.
 
-The scripts follow manuscript order: human microbiome analyses (01), human metabolic analyses (02), experimental 16S (03), metabolomics (04), mouse transcriptomics (05), cross-layer integration (06), and supplementary table assembly (07). Shared functions are in `scripts/00_shared_helpers/`.
+The numbered folders follow the order of the manuscript. Inputs are in `data/` and generated tables, figures and R objects go to `results/`.
 
-## Included data
+## Getting started
 
-The repository contains processed experimental 16S counts and taxonomy, metabolomics feature intensities and annotations, gene-level tximport matrices and mouse metadata, and aggregate cohort result tables needed for the figures. Each input is listed in [`data/input_manifest.csv`](data/input_manifest.csv), with its source, purpose and SHA-256 checksum.
-
-Participant-level human cohort data cannot be provided in this repository. This includes secretion and reaction-abundance matrices and their demographic or clinical covariates. Their analysis scripts are retained, with the restriction explained in [`docs/RESTRICTED_DATA.md`](docs/RESTRICTED_DATA.md). Raw sequencing reads, raw instrument files and metabolic model reconstructions are not bundled.
-
-## Running the code
-
-Use R 4.5 and install the packages for the workflow you want to run; see [`environment/README.md`](environment/README.md). Open a terminal in the repository folder:
+Download this repository or clone it:
 
 ```sh
-Rscript run.R --list
-Rscript run.R --check
-Rscript tests/check_inputs.R
-Rscript run.R --workflow cohort-meta
-Rscript run.R --workflow metabolomics-refit
-Rscript run.R --workflow rna-primary
-Rscript run.R --workflow integration
-Rscript run.R --workflow figures
-Rscript tests/compare_generated_tables.R results
+git clone https://github.com/kamoors/PPI_modelling_and_microbiomes.git
+cd PPI_modelling_and_microbiomes
 ```
 
-Individual scripts can be selected by their numbered filename:
+Use R 4.5. Open R or RStudio and set the working directory to this folder. Each analysis can then be run with `source()`. For example, this refits the serum LC-MS analysis from the prepared measurements:
+
+```r
+source("scripts/04_mouse_metabolomics/04_03_analyse_serum_lcms.R")
+```
+
+The same script can be run from a terminal in the repository folder:
 
 ```sh
-Rscript run.R --script 04_11_test_metabolomics_ordination.R
+Rscript scripts/04_mouse_metabolomics/04_03_analyse_serum_lcms.R
 ```
 
-The repository can be moved to another folder. Inputs default to `data/` and generated files go to `results/`. No original project directory is required. `results/output_manifest.csv` records the producer and path of each export. Use `--results-root /path/to/results` for another destination. See [`docs/RUN_ORDER.md`](docs/RUN_ORDER.md) for prerequisites and supported starting points.
+Start with a fresh R session for each analysis sequence. The scripts load their shared file-handling functions automatically; there is no installation step for the repository itself.
 
-## Reproduction scope
+## R packages
 
-Refitting from processed experimental measurements, redrawing figures from saved tables, and assembling supplementary workbooks are separate operations. `data/reference/` contains published result snapshots for comparison and workbook assembly; these are not substituted for measurements in the model-fitting scripts. The supplementary assembly step does not automatically incorporate new model fits.
+For the metabolomics analyses:
 
-The primary RNA workflow preserves the original filtering order, including exclusions of C02 and G04. The independent integration cache uses its original, different filtering order. Optional enrichment and historical additional analyses are retained in `scripts/optional/`; these may require annotation packages, databases and locally generated caches.
+```r
+install.packages(c("BiocManager", "statmod", "dplyr", "tidyr", "purrr",
+                   "stringr", "tibble", "readr", "readxl", "writexl"))
+BiocManager::install("limma")
+```
 
-The MetaCardis reaction and secretion scripts reconstruct the primary models that match the downstream tables. Both retain exclusion of recorded non-users with metabolomics-detected PPI. Their provenance and validation are described in [`docs/SOURCE_UPDATES_20261113.md`](docs/SOURCE_UPDATES_20261113.md). The `cohort-meta` workflow reruns both meta-analyses using bundled aggregate cohort statistics and registers refreshed Figure 1 inputs.
+For experimental 16S analysis, add `phyloseq`, `vegan` and `permute`. For RNA-seq, add `DESeq2`, `SummarizedExperiment`, `edgeR` and `limma` through BiocManager. Enrichment scripts also require the annotation and gene-set packages named in those scripts, including `org.Mm.eg.db`, `clusterProfiler`, `fgsea`, `msigdbr` and `GSVA`. Other dependencies are listed in the individual scripts.
 
-Model construction used the external Persephone pipeline from the Thiele lab. Its source is referenced rather than redistributed; the study-specific assembly wrapper and documented settings are included. See [`docs/MODEL_CONSTRUCTION.md`](docs/MODEL_CONSTRUCTION.md). The reviewed manuscript and Supplementary Data 1–5 do not report sex-stratified association or PPI-by-sex interaction results. Those exploratory branches are outside this release's required workflow. See [`docs/VALIDATION.md`](docs/VALIDATION.md). Figure-specific checks and the corrected 16S panel filter are described in [`docs/FIGURE_VALIDATION.md`](docs/FIGURE_VALIDATION.md).
+Figure scripts use `ggplot2`, `ggrepel`, `cowplot`, `patchwork`, `scales`, `forcats` and `ggsignif`, alongside the packages for the corresponding analysis. With ggplot2 4, use cowplot >= 1.2.0 and patchwork >= 1.3.2. The figures use Arial; Cairo support and this font are needed to reproduce the typography. Supplementary workbook assembly uses `openxlsx`.
+
+## Analyses
+
+Run the scripts below using `source("scripts/<folder>/<filename>")`. Filenames are shown in execution order. The public starting points use the supplied processed measurements or aggregate statistics.
+
+| Folder | Scripts to run | Results |
+| --- | --- | --- |
+| `01_human_microbiome` | `01_11_meta_analyse_reaction_abundance.R`, then `01_12_meta_analyse_predicted_secretion.R` | Fixed-effect meta-analyses from the complete Kiel and MetaCardis cohort-level tables |
+| `02_human_metabolism` | `02_02_blood_flux_meta_analysis.R`; `02_04_integrate_blood_flux_and_serum.R` | Blood-flux meta-analysis and comparison with saved serum results |
+| `03_mouse_microbiome` | `03_02_plot_mouse_microbiome.R` | Experimental 16S ordination, Bray-Curtis comparisons and Figure 3; `03_03_export_bray_curtis_data.R` exports the distances without plotting |
+| `04_mouse_metabolomics` | `04_03_analyse_serum_lcms.R`, `04_05_analyse_intestinal_lcms.R`, `04_06_analyse_caecum_nmr.R`, `04_07_analyse_ex_vivo_nmr.R`, `04_09_analyse_ex_vivo_hilic.R` | Primary model tables from prepared LC-MS/HILIC matrices and NMR intensities |
+| `04_mouse_metabolomics` | `04_10_prepare_metabolomics_ordination.R`, then `04_11_test_metabolomics_ordination.R` | PCA configurations and donor-restricted Procrustes comparison; 04_11 can also use the supplied PCA configurations |
+| `05_mouse_transcriptomics` | `05_01_prepare_primary_deseq2_cache.R`, then `05_04_primary_deseq2_and_gsea.R` | Primary DESeq2 results from tximport and mouse metadata, excluding C02 and G04 |
+| `05_mouse_transcriptomics` | `05_01_prepare_primary_deseq2_cache.R`, then `05_12_primary_limma_donor_blocked.R` | Donor-blocked limma-voom results, excluding C02 and G04 |
+| `06_multiomics_integration` | `06_02_prepare_multiomics_inputs.R`, `06_03_genus_metabolite_associations.R`, then `06_04_summarize_genus_metabolite_associations.R` | Genus-metabolite associations and leave-one-donor-out summaries; 06_03 can also start from the supplied prepared input object |
+
+To repeat LC-MS feature import and curation, run 04_01 then 04_02 before 04_03; run 04_04 before 04_05; and run 04_08 before 04_09. The initial serum loading also runs historical mixed models and needs `lmerTest`.
+
+Additional RNA analyses are in 05_03 (sample diagnostics), 05_05 (covariate sensitivity) and 05_06 (liver GO comparison using saved differential-expression tables). For gene-metabolite models, first run 05_09 to create the independent integration RNA cache, then 06_02 and 06_05. Script 05_11 computes pathway scores and pathway-metabolite associations from the integration cache and GSEA outputs. These analyses can take longer and require the enrichment dependencies. Script 06_06 exports the focused integration figure tables after the full integration fits.
+
+Shared analysis functions are in `scripts/00_shared_helpers/`. Historical exploratory analyses and additional enrichment scripts are in `scripts/optional/`; they are not needed for the primary analyses above.
+
+## Figures and supplementary tables
+
+The figure scripts can run directly using the saved plotting tables included in `data/figure_inputs/`:
+
+| Figure | Script |
+| --- | --- |
+| 1 | `scripts/01_human_microbiome/01_09_plot_human_microbiome.R` |
+| 2 | `scripts/02_human_metabolism/02_05_plot_human_metabolism.R` |
+| 3 | `scripts/03_mouse_microbiome/03_02_plot_mouse_microbiome.R` |
+| 4 | `scripts/04_mouse_metabolomics/04_13_plot_mouse_metabolomics.R` |
+| 5 | `scripts/05_mouse_transcriptomics/05_07_plot_mouse_transcriptomics.R` |
+| 6 | `scripts/06_multiomics_integration/06_07_plot_multiomics_integration.R` |
+| Supplementary transcriptomics figure | `scripts/05_mouse_transcriptomics/05_08_plot_supplementary_transcriptomics.R` |
+
+For example:
+
+```r
+source("scripts/04_mouse_metabolomics/04_13_plot_mouse_metabolomics.R")
+```
+
+PDF and PNG files appear under the corresponding `results/<analysis>/figures/` folder. `results/files.csv` lists generated files and their producing scripts.
+
+Figure generation uses saved tables where provided; it does not refit every underlying model. The reaction and secretion meta-analyses (01_11 and 01_12) update their Figure 1 inputs when run before plotting. Other figures may retain saved selection tables, PCA coordinates, annotations or pathway results. Newly generated outputs are used where their input references match; this is not an automatic rebuild of every manuscript result. See [data/README.md](data/README.md) for the saved inputs.
+
+Run `scripts/07_supplementary_data/07_01_build_supplementary_data.R` to assemble the five Supplementary Data workbooks from the final result snapshots in `data/reference/`. This step formats those tables; it does not replace them with new fits.
+
+## Data that are not included
+
+Participant-level human cohort data and clinical covariates cannot be shared here. The Kiel and MetaCardis taxonomy, reaction-abundance, secretion, blood-flux and serum model scripts are included, but their individual-level models cannot be rerun from the public repository. Aggregate statistics support the meta-analyses and figures. The MetaCardis primary scripts retain exclusion of reported non-users with metabolomics-detected PPI.
+
+Raw sequencing reads, instrument acquisition files and metabolic model reconstructions are not included. DADA2 preprocessing (03_01) requires reads and references. Oxygen-reaction extraction (01_07) requires AGORA2 models; set `PPI_AGORA2_MODELS` to their directory. The saved reaction statistics support threshold sensitivity analysis (01_08) without models. Model construction used Persephone from the Thiele lab; the MATLAB file in `02_human_metabolism/` records the study-specific host/microbiome assembly step and requires that external software and models.
+
+Authorised users with the original private cohort directory structure can set `PPI_PRIVATE_DATA_ROOT` to that directory before running the restricted scripts. Keep these data outside the repository. Public analyses use only the files in this repository. Enrichment results can vary with annotation database versions, and stochastic plots can differ in layout.
 
 ## Licence and citation
 
-The authors' code is available under the **PolyForm Noncommercial License 1.0.0**; see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE). Commercial use is not licensed by these terms. This is a source-available repository, not an OSI open-source release. Original experimental data are provided under **CC BY-NC 4.0**; third-party annotations retain their own terms, as described in [`DATA_LICENSE.md`](DATA_LICENSE.md).
+The authors' code is licensed for noncommercial use under [PolyForm Noncommercial 1.0.0](LICENSE); see [NOTICE](NOTICE). Original processed data and aggregate tables are under CC BY-NC 4.0. Third-party resources retain their own terms; see [DATA_LICENSE.md](DATA_LICENSE.md).
 
-Please cite the accompanying manuscript and this repository: https://github.com/kamoors/PPI_modelling_and_microbiomes. A manuscript DOI can be added to `CITATION.cff` when available.
+Please cite the accompanying manuscript and this repository. Citation metadata are in [CITATION.cff](CITATION.cff).

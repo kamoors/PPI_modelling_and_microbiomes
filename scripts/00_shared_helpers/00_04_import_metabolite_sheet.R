@@ -1,8 +1,5 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Caecum/faeces LC-MS import function
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
-# Writes generated files under results/; bundled inputs are read-only.
 
 process_metabolite_sheet <- function(data, metid, meta_cols = 9) {
     require(dplyr)
@@ -28,9 +25,9 @@ process_metabolite_sheet <- function(data, metid, meta_cols = 9) {
         bad <- is.na(new_names) | trimws(new_names) == ""
         if (any(bad)) {
             print("BAD NEW NAMES")
-            print(tibble::tibble(keep_id = keep_ids[bad], new_name = new_names[bad], id_match = match(keep_ids[bad], 
-                metid_sub$id), rank_primary = rank_primary, primary_value = metid_sub[[rank_primary]][match(keep_ids[bad], 
-                metid_sub$id)], rank2_value = metid_sub$Metabolite_Rank2[match(keep_ids[bad], metid_sub$id)], 
+            print(tibble::tibble(keep_id = keep_ids[bad], new_name = new_names[bad], id_match = match(keep_ids[bad],
+                metid_sub$id), rank_primary = rank_primary, primary_value = metid_sub[[rank_primary]][match(keep_ids[bad],
+                metid_sub$id)], rank2_value = metid_sub$Metabolite_Rank2[match(keep_ids[bad], metid_sub$id)],
                 rank2_1_value = if ("Metabolite_Rank2_1" %in% names(metid_sub)) {
                   metid_sub$Metabolite_Rank2_1[match(keep_ids[bad], metid_sub$id)]
                 }

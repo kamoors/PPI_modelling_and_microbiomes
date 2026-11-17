@@ -1,14 +1,11 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Metabolomics/RNA sample matching
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
-# Writes generated files under results/; bundled inputs are read-only.
 
 library(dplyr)
 library(stringr)
 library(writexl)
-bridge_dir <- ppi_path("rnaseq/Results/metabolomics_rnaseq_bridges")
-dir.create(ppi_output(bridge_dir, directory = TRUE), recursive = TRUE, showWarnings = FALSE)
+bridge_dir <- project_path("rnaseq/Results/metabolomics_rnaseq_bridges")
+dir.create(project_output(bridge_dir, directory = TRUE), recursive = TRUE, showWarnings = FALSE)
 .norm <- function(x) {
     tolower(gsub("\\s+", "", x))
 }
@@ -25,17 +22,17 @@ extract_metab_mouse_info <- function(sample_name) {
 }
 build_metab_rnaseq_bridge <- function(metab_meta, rnaseq_meta, organ_label, sample_col = "Sample_Name") {
     parsed <- extract_metab_mouse_info(metab_meta[[sample_col]])
-    parsed <- parsed %>% dplyr::mutate(external_name_key = ifelse(is.na(group_metab) | is.na(donor_num) | 
+    parsed <- parsed %>% dplyr::mutate(external_name_key = ifelse(is.na(group_metab) | is.na(donor_num) |
         is.na(mouse_num), NA_character_, paste0(group_metab, "_", donor_num, "_m_", mouse_num, "_", organ_label)))
-    rnaseq_small <- rnaseq_meta %>% dplyr::select(rna_sample = name, external_name, donor, group_rnaseq = group, 
+    rnaseq_small <- rnaseq_meta %>% dplyr::select(rna_sample = name, external_name, donor, group_rnaseq = group,
         organ)
-    bridge <- parsed %>% dplyr::left_join(rnaseq_small, by = c(external_name_key = "external_name")) %>% 
+    bridge <- parsed %>% dplyr::left_join(rnaseq_small, by = c(external_name_key = "external_name")) %>%
         dplyr::mutate(matched = !is.na(rna_sample))
     bridge
 }
 summarise_bridge <- function(bridge_tbl, dataset, compartment, organ_label) {
-    bridge_tbl %>% dplyr::summarise(dataset = dataset, compartment = compartment, organ = organ_label, 
-        n_metab_samples = dplyr::n(), n_matched = sum(matched), n_unmatched = sum(!matched), matched_fraction = n_matched/n_metab_samples, 
+    bridge_tbl %>% dplyr::summarise(dataset = dataset, compartment = compartment, organ = organ_label,
+        n_metab_samples = dplyr::n(), n_matched = sum(matched), n_unmatched = sum(!matched), matched_fraction = n_matched/n_metab_samples,
         .groups = "drop")
 }
 rnaseq_meta_by_org <- list(Brain = meta_brain, Colon = meta_colon, Liver = meta_liver)
@@ -44,19 +41,19 @@ gut_meta_cecum <- gut_meta %>% dplyr::filter(.norm(Organ) == "cecum")
 gut_meta_feces <- gut_meta %>% dplyr::filter(.norm(Organ) %in% c("feces", "faeces", "stool"))
 bridges_gut <- list()
 for (org in names(rnaseq_meta_by_org)) {
-    bridges_gut[[org]] <- list(cecum = build_metab_rnaseq_bridge(metab_meta = gut_meta_cecum, rnaseq_meta = rnaseq_meta_by_org[[org]], 
-        organ_label = org), feces = build_metab_rnaseq_bridge(metab_meta = gut_meta_feces, rnaseq_meta = rnaseq_meta_by_org[[org]], 
+    bridges_gut[[org]] <- list(cecum = build_metab_rnaseq_bridge(metab_meta = gut_meta_cecum, rnaseq_meta = rnaseq_meta_by_org[[org]],
+        organ_label = org), feces = build_metab_rnaseq_bridge(metab_meta = gut_meta_feces, rnaseq_meta = rnaseq_meta_by_org[[org]],
         organ_label = org))
 }
 serum_meta <- pos_serum$metadata
 bridges_serum <- list()
 for (org in names(rnaseq_meta_by_org)) {
-    bridges_serum[[org]] <- build_metab_rnaseq_bridge(metab_meta = serum_meta, rnaseq_meta = rnaseq_meta_by_org[[org]], 
+    bridges_serum[[org]] <- build_metab_rnaseq_bridge(metab_meta = serum_meta, rnaseq_meta = rnaseq_meta_by_org[[org]],
         organ_label = org)
 }
 bridge_diag_gut <- dplyr::bind_rows(lapply(names(bridges_gut), function(org) {
-    dplyr::bind_rows(summarise_bridge(bridges_gut[[org]]$cecum, dataset = "gut", compartment = "cecum", 
-        organ_label = org), summarise_bridge(bridges_gut[[org]]$feces, dataset = "gut", compartment = "feces", 
+    dplyr::bind_rows(summarise_bridge(bridges_gut[[org]]$cecum, dataset = "gut", compartment = "cecum",
+        organ_label = org), summarise_bridge(bridges_gut[[org]]$feces, dataset = "gut", compartment = "feces",
         organ_label = org))
 }))
 bridge_diag_serum <- dplyr::bind_rows(lapply(names(bridges_serum), function(org) {
@@ -65,12 +62,12 @@ bridge_diag_serum <- dplyr::bind_rows(lapply(names(bridges_serum), function(org)
 bridge_diagnostics <- dplyr::bind_rows(bridge_diag_gut, bridge_diag_serum)
 print(bridge_diagnostics)
 unmatched_gut <- dplyr::bind_rows(lapply(names(bridges_gut), function(org) {
-    dplyr::bind_rows(bridges_gut[[org]]$cecum %>% dplyr::filter(!matched) %>% dplyr::mutate(dataset = "gut", 
-        compartment = "cecum", target_organ = org), bridges_gut[[org]]$feces %>% dplyr::filter(!matched) %>% 
+    dplyr::bind_rows(bridges_gut[[org]]$cecum %>% dplyr::filter(!matched) %>% dplyr::mutate(dataset = "gut",
+        compartment = "cecum", target_organ = org), bridges_gut[[org]]$feces %>% dplyr::filter(!matched) %>%
         dplyr::mutate(dataset = "gut", compartment = "feces", target_organ = org))
 }))
 unmatched_serum <- dplyr::bind_rows(lapply(names(bridges_serum), function(org) {
-    bridges_serum[[org]] %>% dplyr::filter(!matched) %>% dplyr::mutate(dataset = "serum", compartment = "serum", 
+    bridges_serum[[org]] %>% dplyr::filter(!matched) %>% dplyr::mutate(dataset = "serum", compartment = "serum",
         target_organ = org)
 }))
 unmatched_all <- dplyr::bind_rows(unmatched_gut, unmatched_serum)

@@ -1,7 +1,0 @@
-source,rows,all_fields_identical
-gene_results__cecum_lcms__Colon.csv.gz,15987,True
-gene_results__cecum_lcms__Liver.csv.gz,14132,True
-gene_results__cecum_nmr__Colon.csv.gz,15987,True
-gene_results__cecum_nmr__Liver.csv.gz,14132,True
-gene_results__serum_lcms__Colon.csv.gz,15987,True
-gene_results__serum_lcms__Liver.csv.gz,14132,True

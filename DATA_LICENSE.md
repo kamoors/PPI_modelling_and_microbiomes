@@ -4,4 +4,4 @@ The authors' original processed experimental data and aggregate result tables ar
 
 This grant covers only rights held by the authors. It does not relicense third-party database content, reference annotations, software, or human cohort source data. Metabolite dictionaries, VMH/HMDB mappings and HMDB class annotations retain their respective source terms and attribution requirements. MSigDB/Reactome and organism annotation resources used by enrichment scripts are governed by their own terms. Consult the relevant provider before reuse or redistribution of those materials.
 
-Participant-level human cohort data and adjustment covariates are not distributed. See docs/RESTRICTED_DATA.md. No raw sequencing reads, acquisition files or metabolic reconstructions are included.
+Participant-level human cohort data and adjustment covariates are not distributed. See README.md for the available analyses. No raw sequencing reads, acquisition files or metabolic reconstructions are included.

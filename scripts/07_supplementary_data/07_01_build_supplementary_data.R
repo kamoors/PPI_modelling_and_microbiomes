@@ -1,12 +1,20 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Assemble the published Supplementary Data tables. This is a reporting step.
 # Statistical refitting is performed by scripts/01 through scripts/06.
+
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "07_supplementary_data",
+  directory = "Manuscript",
+  script = "07_01_build_supplementary_data.R",
+  restricted = FALSE,
+  code = {
 if (!requireNamespace("openxlsx", quietly=TRUE)) stop("Install openxlsx first.")
 names <- c("Microbiome_and_Cohort_Analyses", "Experimental_Metabolomics",
            "Mouse_Transcriptomics", "CrossLayer_Integration")
-out_dir <- ppi_path("supplementary_data")
+out_dir <- project_path("supplementary_data")
 for (i in seq_along(names)) {
-    tables <- readRDS(ppi_input(ppi_path(paste0("reference/supplementary_data_",i,"_tables.rds"))))
+    tables <- readRDS(project_input(project_path(paste0("reference/supplementary_data_",i,"_tables.rds"))))
     wb <- openxlsx::createWorkbook(creator="Karlis A. Moors")
     header <- openxlsx::createStyle(fontColour="#FFFFFF",fgFill="#17365D",textDecoration="bold",wrapText=TRUE,valign="top")
     for (sheet in names(tables)) {
@@ -21,11 +29,12 @@ for (i in seq_along(names)) {
         openxlsx::setRowHeights(wb,sheet,rows=1,heights=30)
     }
     filename <- paste0("supplementary_data_",i,"_",tolower(names[i]),".xlsx")
-    openxlsx::saveWorkbook(wb,ppi_output(file.path(out_dir,filename),name=filename),overwrite=TRUE)
+    openxlsx::saveWorkbook(wb,project_output(file.path(out_dir,filename),name=filename),overwrite=TRUE)
 }
 # Copy the mixed-type NMR workbook without rewriting cell values or metadata.
-source <- ppi_input(ppi_path("reference/supplementary_data_5_nmr.xlsx"))
-target <- ppi_output(file.path(out_dir,"supplementary_data_5_nmr_source_data.xlsx"),
+source <- project_input(project_path("reference/supplementary_data_5_nmr.xlsx"))
+target <- project_output(file.path(out_dir,"supplementary_data_5_nmr_source_data.xlsx"),
                      name="supplementary_data_5_nmr_source_data.xlsx")
 stopifnot(file.copy(source,target,overwrite=TRUE))
 message("Five supplementary workbooks assembled from published table snapshots.")
+}))

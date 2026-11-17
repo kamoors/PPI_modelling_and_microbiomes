@@ -1,10 +1,14 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Kiel final secretion regression
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
 # Human participant-level input matrices and covariates are not distributed.
-# Supply authorised data separately; see docs/RESTRICTED_DATA.md.
 
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "01_human_microbiome",
+  directory = "human_cohorts/kiel",
+  script = "01_06_kiel_metabolite_secretion.R",
+  restricted = TRUE,
+  code = {
 library(lmtest)
 library(sandwich)
 require(gplots)
@@ -21,15 +25,15 @@ library(car)
 library(boot.pval)
 library(MatrixGenerics)
 library(tibble)
-ppi_source(ppi_code("scripts/00_shared_helpers/00_01_load_kiel_metadata.R"))
-ppi_setwd(ppi_path("human_cohorts/kiel/"))
-mg_sec <- read.csv(ppi_input(ppi_path("human_cohorts/kiel/Secretion_data_mgpipe_focus.csv")))
+project_source(project_code("scripts/00_shared_helpers/00_01_load_kiel_metadata.R"))
+project_setwd(project_path("human_cohorts/kiel/"))
+mg_sec <- read.csv(project_input(project_path("human_cohorts/kiel/Secretion_data_mgpipe_focus.csv")))
 colnames(mg_sec) <- c("Net_secretion", stringr::str_sub(colnames(mg_sec[, -1]), 2))
 stopifnot("Net_secretion" %in% colnames(mg_sec))
 missing_in_mg <- setdiff(data$ID, colnames(mg_sec)[-1])
 extra_in_mg <- setdiff(colnames(mg_sec)[-1], data$ID)
 if (length(missing_in_mg) > 0) stop("Missing samples in mg_sec: ", paste(missing_in_mg, collapse = ", "))
-if (length(extra_in_mg) > 0) message("Extra samples in mg_sec (will be dropped): ", paste(extra_in_mg, 
+if (length(extra_in_mg) > 0) message("Extra samples in mg_sec (will be dropped): ", paste(extra_in_mg,
     collapse = ", "))
 mg_sec <- mg_sec[, c("Net_secretion", data$ID)]
 stopifnot(all(colnames(mg_sec[, -1]) == data$ID))
@@ -73,7 +77,7 @@ fit_all_features_hc3 <- function(data_in, test_df, fml, transform_y = function(x
     names(out) <- colnames(data_in)
     out
 }
-ppi_source(ppi_code("scripts/00_shared_helpers/00_07_secretion_bootstrap_functions.R"))
+project_source(project_code("scripts/00_shared_helpers/00_07_secretion_bootstrap_functions.R"))
 fml_full <- met ~ PPI + Age + Gender + BMI + diabetes_mb + medication_count + Metformin + STATIN + ASPIRIN
 fml_base <- met ~ PPI + Age + Gender + BMI
 fml_boot_full <- fml_full
@@ -82,31 +86,31 @@ y_transform <- function(x) log1p(x)
 test_df <- focus_data
 data_in <- boot_dat_filt
 mg_sec_glm_full <- fit_all_features_hc3(data_in, test_df, fml_full, transform_y = y_transform)
-focus_mgsec_results_preboot_full <- tibble(metabolite = names(mg_sec_glm_full), hc3_coef = sapply(mg_sec_glm_full, 
+focus_mgsec_results_preboot_full <- tibble(metabolite = names(mg_sec_glm_full), hc3_coef = sapply(mg_sec_glm_full,
     function(ct) {
-        if (is.null(ct)) 
+        if (is.null(ct))
             return(NA_real_)
-        if (ppi_term %in% rownames(ct)) 
+        if (ppi_term %in% rownames(ct))
             ct[ppi_term, "Estimate"]
         else NA_real_
     }), hc3_se = sapply(mg_sec_glm_full, function(ct) {
-    if (is.null(ct)) 
+    if (is.null(ct))
         return(NA_real_)
-    if (ppi_term %in% rownames(ct)) 
+    if (ppi_term %in% rownames(ct))
         ct[ppi_term, "Std. Error"]
     else NA_real_
 }), hc3_p = sapply(mg_sec_glm_full, function(ct) {
-    if (is.null(ct)) 
+    if (is.null(ct))
         return(NA_real_)
-    if (ppi_term %in% rownames(ct)) 
+    if (ppi_term %in% rownames(ct))
         ct[ppi_term, "Pr(>|t|)"]
     else NA_real_
-})) %>% mutate(hc3_ci_low = hc3_coef - qnorm(0.975) * hc3_se, hc3_ci_high = hc3_coef + qnorm(0.975) * 
+})) %>% mutate(hc3_ci_low = hc3_coef - qnorm(0.975) * hc3_se, hc3_ci_high = hc3_coef + qnorm(0.975) *
     hc3_se, hc3_fdr = p.adjust(hc3_p, method = "fdr")) %>% arrange(hc3_fdr, hc3_p)
 load_metabolite_dict <- function(dict_path) {
-    md <- readr::read_tsv(ppi_input(dict_path), show_col_types = FALSE)
+    md <- readr::read_tsv(project_input(dict_path), show_col_types = FALSE)
     stopifnot(all(c("abbreviation", "fullName") %in% colnames(md)))
-    md %>% dplyr::select(abbreviation, fullName) %>% dplyr::mutate(abbreviation = as.character(abbreviation), 
+    md %>% dplyr::select(abbreviation, fullName) %>% dplyr::mutate(abbreviation = as.character(abbreviation),
         fullName = as.character(fullName)) %>% dplyr::distinct(abbreviation, .keep_all = TRUE)
 }
 extract_met_abbr <- function(x) {
@@ -126,14 +130,15 @@ extract_met_abbr <- function(x) {
     }
     out
 }
-dict_path <- ppi_path("human_cohorts/kiel/recon-store-metabolites-1 (1).tsv")
+dict_path <- project_path("human_cohorts/kiel/recon-store-metabolites-1 (1).tsv")
 md <- load_metabolite_dict(dict_path)
 rxn_col = "metabolite"
 coef_col = "hc3_coef"
-focus_mgsec_results_preboot_full <- focus_mgsec_results_preboot_full %>% dplyr::mutate(rxn = .data[[rxn_col]], 
-    coef = as.numeric(.data[[coef_col]]), met_abbr = extract_met_abbr(.data[[rxn_col]])) %>% dplyr::left_join(md, 
-    by = c(met_abbr = "abbreviation")) %>% dplyr::mutate(label = dplyr::coalesce(fullName, met_abbr, 
+focus_mgsec_results_preboot_full <- focus_mgsec_results_preboot_full %>% dplyr::mutate(rxn = .data[[rxn_col]],
+    coef = as.numeric(.data[[coef_col]]), met_abbr = extract_met_abbr(.data[[rxn_col]])) %>% dplyr::left_join(md,
+    by = c(met_abbr = "abbreviation")) %>% dplyr::mutate(label = dplyr::coalesce(fullName, met_abbr,
     rxn), label = as.character(label))
-write.csv(focus_mgsec_results_preboot_full, file = ppi_output(ppi_path("human_cohorts/results/Focus_mgpipe_net_secretion_HC3_FULL_NEWPPI_clean_results.csv"), 
+write.csv(focus_mgsec_results_preboot_full, file = project_output(project_path("human_cohorts/results/Focus_mgpipe_net_secretion_HC3_FULL_NEWPPI_clean_results.csv"),
     name = "kiel_metabolite_secretion_hc3_full.csv"), row.names = FALSE)
-ppi_source(ppi_code("scripts/00_shared_helpers/00_08_secretion_additional_analyses.R"))
+project_source(project_code("scripts/00_shared_helpers/00_08_secretion_additional_analyses.R"))
+}))

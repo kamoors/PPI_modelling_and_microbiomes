@@ -1,10 +1,14 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Kiel final reaction abundance regression
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
 # Human participant-level input matrices and covariates are not distributed.
-# Supply authorised data separately; see docs/RESTRICTED_DATA.md.
 
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "01_human_microbiome",
+  directory = "human_cohorts/kiel",
+  script = "01_04_kiel_reaction_abundance.R",
+  restricted = TRUE,
+  code = {
 require(gplots)
 require(ggfortify)
 require(ggplot2)
@@ -18,21 +22,21 @@ library(RColorBrewer)
 library(car)
 library(boot.pval)
 library(MatrixGenerics)
-ppi_source(ppi_code("scripts/00_shared_helpers/00_01_load_kiel_metadata.R"))
-ppi_setwd(ppi_path("human_cohorts/kiel/"))
+project_source(project_code("scripts/00_shared_helpers/00_01_load_kiel_metadata.R"))
+project_setwd(project_path("human_cohorts/kiel/"))
 library(lmtest)
 library(sandwich)
 library(MatrixGenerics)
 library(compositions)
 library(tibble)
-reaction_abundance <- read.csv(ppi_input(ppi_path("human_cohorts/kiel/Reaction_abundance_mgpipe_focus.csv")))
+reaction_abundance <- read.csv(project_input(project_path("human_cohorts/kiel/Reaction_abundance_mgpipe_focus.csv")))
 colnames(reaction_abundance) <- c("rxn_name", stringr::str_sub(colnames(reaction_abundance[, -1]), 2))
 stopifnot("rxn_name" %in% colnames(reaction_abundance))
 missing_in_rxn <- setdiff(data$ID, colnames(reaction_abundance)[-1])
 extra_in_rxn <- setdiff(colnames(reaction_abundance)[-1], data$ID)
-if (length(missing_in_rxn) > 0) stop("Missing samples in reaction_abundance: ", paste(missing_in_rxn, 
+if (length(missing_in_rxn) > 0) stop("Missing samples in reaction_abundance: ", paste(missing_in_rxn,
     collapse = ", "))
-if (length(extra_in_rxn) > 0) message("Extra samples in reaction_abundance (will be dropped): ", paste(extra_in_rxn, 
+if (length(extra_in_rxn) > 0) message("Extra samples in reaction_abundance (will be dropped): ", paste(extra_in_rxn,
     collapse = ", "))
 reaction_abundance <- reaction_abundance[, c("rxn_name", data$ID)]
 stopifnot(all(colnames(reaction_abundance[, -1]) == data$ID))
@@ -79,8 +83,8 @@ fit_all_reactions_hc3 <- function(data_in, test_df, fml) {
     names(out) <- colnames(data_in)
     out
 }
-ppi_source(ppi_code("scripts/00_shared_helpers/00_09_reaction_bootstrap_functions.R"))
-fml_full <- met ~ PPI + Age + Gender + BMI + diabetes_mb + medication_count + Metformin + STATIN + ASPIRIN + 
+project_source(project_code("scripts/00_shared_helpers/00_09_reaction_bootstrap_functions.R"))
+fml_full <- met ~ PPI + Age + Gender + BMI + diabetes_mb + medication_count + Metformin + STATIN + ASPIRIN +
     log_rxn_total_abundance
 fml_base <- met ~ PPI + Age + Gender + BMI
 fml_boot_full <- fml_full
@@ -88,27 +92,28 @@ fml_boot_base <- fml_base
 data_in <- rxn_abundance_dat_filt
 test_df <- focus_data
 react_ab_glm_full <- fit_all_reactions_hc3(data_in, test_df, fml_full)
-focus_react_ab_results_preboot_full <- tibble(metabolite = names(react_ab_glm_full), hc3_coef = sapply(react_ab_glm_full, 
+focus_react_ab_results_preboot_full <- tibble(metabolite = names(react_ab_glm_full), hc3_coef = sapply(react_ab_glm_full,
     function(ct) {
-        if (is.null(ct)) 
+        if (is.null(ct))
             return(NA_real_)
-        if (ppi_term %in% rownames(ct)) 
+        if (ppi_term %in% rownames(ct))
             ct[ppi_term, "Estimate"]
         else NA_real_
     }), hc3_se = sapply(react_ab_glm_full, function(ct) {
-    if (is.null(ct)) 
+    if (is.null(ct))
         return(NA_real_)
-    if (ppi_term %in% rownames(ct)) 
+    if (ppi_term %in% rownames(ct))
         ct[ppi_term, "Std. Error"]
     else NA_real_
 }), hc3_p = sapply(react_ab_glm_full, function(ct) {
-    if (is.null(ct)) 
+    if (is.null(ct))
         return(NA_real_)
-    if (ppi_term %in% rownames(ct)) 
+    if (ppi_term %in% rownames(ct))
         ct[ppi_term, "Pr(>|t|)"]
     else NA_real_
-})) %>% mutate(hc3_ci_low = hc3_coef - qnorm(0.975) * hc3_se, hc3_ci_high = hc3_coef + qnorm(0.975) * 
+})) %>% mutate(hc3_ci_low = hc3_coef - qnorm(0.975) * hc3_se, hc3_ci_high = hc3_coef + qnorm(0.975) *
     hc3_se, hc3_fdr = p.adjust(hc3_p, method = "fdr")) %>% arrange(hc3_fdr, hc3_p)
-write.csv(focus_react_ab_results_preboot_full, file = ppi_output(ppi_path("human_cohorts/results/Focus_mgpipe_reaction_abundance_LOG_HC3_FULL_withNewPPI_results.csv"), 
+write.csv(focus_react_ab_results_preboot_full, file = project_output(project_path("human_cohorts/results/Focus_mgpipe_reaction_abundance_LOG_HC3_FULL_withNewPPI_results.csv"),
     name = "kiel_reaction_abundance_hc3_full.csv"), row.names = FALSE)
-ppi_source(ppi_code("scripts/00_shared_helpers/00_10_reaction_additional_analyses.R"))
+project_source(project_code("scripts/00_shared_helpers/00_10_reaction_additional_analyses.R"))
+}))

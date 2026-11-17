@@ -1,31 +1,36 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # DADA2/phyloseq preprocessing
-# Run through run.R so input and output paths resolve within the package.
-# Inputs: see data/input_manifest.csv and docs/RUN_ORDER.md.
-# Optional upstream reconstruction: raw reads or metabolic models are external.
-# The main package workflows start from the supplied processed tables.
+# Requires raw reads and taxonomy references, which are not included here.
+# Script 03_02 starts from the supplied processed phyloseq object.
 
+source("scripts/helpers/setup.R")
+invisible(run_analysis(
+  section = "03_mouse_microbiome",
+  directory = "microbiome16s",
+  script = "03_01_process_mouse_16s.R",
+  restricted = FALSE,
+  code = {
 library(dada2)
 library(phyloseq)
 library(Biostrings)
 library(ggplot2)
-path <- ppi_path("microbiome16s")
-ppi_list_files(path)
-fnFs <- sort(ppi_list_files(path, pattern = "_R1_001.fastq.gz$", full.names = TRUE))
-fnRs <- sort(ppi_list_files(path, pattern = "_R2_001.fastq.gz$", full.names = TRUE))
+path <- project_path("microbiome16s")
+project_list_files(path)
+fnFs <- sort(project_list_files(path, pattern = "_R1_001.fastq.gz$", full.names = TRUE))
+fnRs <- sort(project_list_files(path, pattern = "_R2_001.fastq.gz$", full.names = TRUE))
 sample.names <- sapply(strsplit(basename(fnFs), "_"), `[`, 1)
-plotQualityProfile(ppi_input(fnFs[c(1:2, 40:41)]))
-plotQualityProfile(ppi_input(fnRs[c(1:2, 40:41)]))
+plotQualityProfile(project_input(fnFs[c(1:2, 40:41)]))
+plotQualityProfile(project_input(fnRs[c(1:2, 40:41)]))
 sample.names.unique <- make.unique(sample.names)
 filtFs <- file.path(path, "filtered", paste0(sample.names.unique, "_F_filt.fastq.gz"))
 filtRs <- file.path(path, "filtered", paste0(sample.names.unique, "_R_filt.fastq.gz"))
-out <- filterAndTrim(ppi_input(fnFs), ppi_output(filtFs), ppi_input(fnRs), ppi_output(filtRs), truncLen = c(240, 
+out <- filterAndTrim(project_input(fnFs), project_output(filtFs), project_input(fnRs), project_output(filtRs), truncLen = c(240,
     190), maxN = 0, maxEE = c(2, 2), truncQ = 2, rm.phix = TRUE, compress = TRUE, multithread = TRUE)
-errF <- learnErrors(ppi_input(filtFs), multithread = TRUE)
-errR <- learnErrors(ppi_input(filtRs), multithread = TRUE)
+errF <- learnErrors(project_input(filtFs), multithread = TRUE)
+errR <- learnErrors(project_input(filtRs), multithread = TRUE)
 plotErrors(errF, nominalQ = TRUE)
-derepFs <- derepFastq(ppi_input(filtFs))
-derepRs <- derepFastq(ppi_input(filtRs))
+derepFs <- derepFastq(project_input(filtFs))
+derepRs <- derepFastq(project_input(filtRs))
 names(derepFs) <- sample.names.unique
 names(derepRs) <- sample.names.unique
 dadaFs <- dada(derepFs, err = errF, multithread = TRUE)
@@ -41,9 +46,9 @@ colnames(track) <- c("input", "filtered", "denoisedF", "denoisedR", "merged", "n
 rownames(track) <- sample.names.unique
 track <- as.data.frame(track)
 track$ratio <- track$nonchim/track$merged
-taxa_og <- assignTaxonomy(seqtab.nochim, ppi_input(ppi_path("microbiome16s/silva_nr99_v138.2_toSpecies_trainset.fa.gz")), 
+taxa_og <- assignTaxonomy(seqtab.nochim, project_input(project_path("microbiome16s/silva_nr99_v138.2_toSpecies_trainset.fa.gz")),
     multithread = TRUE)
-taxa_og <- addSpecies(taxa, ppi_input(ppi_path("microbiome16s/silva_v138.2_assignSpecies.fa.gz")))
+taxa_og <- addSpecies(taxa, project_input(project_path("microbiome16s/silva_v138.2_assignSpecies.fa.gz")))
 taxa <- taxa_og[, -7]
 unqs.mock <- seqtab.nochim["MOCK", ]
 unqs.mock <- sort(unqs.mock[unqs.mock > 0], decreasing = TRUE)
@@ -52,7 +57,7 @@ library(phyloseq)
 library(Biostrings)
 library(ggplot2)
 theme_set(theme_bw())
-metadata <- readxl::read_excel(ppi_input(ppi_path("Validation/16S_sample_metadata.xlsx")))
+metadata <- readxl::read_excel(project_input(project_path("Validation/16S_sample_metadata.xlsx")))
 rownames(metadata) <- metadata$barcode
 metadata$experiment <- 0
 metadata$experiment[grep(x = metadata$sample_name, pattern = "_CP_")] <- "culture"
@@ -79,9 +84,10 @@ names(dna) <- taxa_names(ps)
 ps <- merge_phyloseq(ps, dna)
 taxa_names(ps) <- paste0("ASV", seq(ntaxa(ps)))
 ps
-preprocessing_out <- list(seqtab.nochim = seqtab.nochim, seqtab.nochim_filt = seqtab.nochim_filt, taxa = taxa, 
+preprocessing_out <- list(seqtab.nochim = seqtab.nochim, seqtab.nochim_filt = seqtab.nochim_filt, taxa = taxa,
     otu = otu, tax = tax, samples = samples, ps = ps)
-saveRDS(preprocessing_out, ppi_output(ppi_path("microbiome16s/16S_PPI_preprocessing_withRepeats.rds"), 
+saveRDS(preprocessing_out, project_output(project_path("microbiome16s/16S_PPI_preprocessing_withRepeats.rds"),
     name = "mouse_16s_processed_objects.rds"))
-save(seqtab.nochim, seqtab.nochim_filt, taxa, otu, tax, samples, ps, metadata, file = ppi_output(ppi_path("microbiome16s/16S_PPI_preprocessing_withRepeats.RData"), 
+save(seqtab.nochim, seqtab.nochim_filt, taxa, otu, tax, samples, ps, metadata, file = project_output(project_path("microbiome16s/16S_PPI_preprocessing_withRepeats.RData"),
     name = "mouse_16s_processed_objects.RData"))
+}))
