@@ -1,6 +1,6 @@
 # PPI modelling and microbiomes
 
-Code and processed data for *Proton pump inhibitor-associated microbiomes shape systemic host responses*, by Karlis A. Moors and colleagues.
+Code and processed data for *Proton pump inhibitor-associated microbiomes shape systemic host responses*, by Karlis A. Moors et al. Link to Preprint: https://www.biorxiv.org/content/10.64898/2026.11.10.765563v1
 
 The numbered folders follow the order of the manuscript. Inputs are in `data/` and generated tables, figures and R objects go to `results/`.
 
