@@ -376,10 +376,10 @@ hmdb_valid_primary_enrich <- perform_valid_primary_hmdb_ora(full_meta_results = 
     fdr_cutoff = hmdb_enrichment_fdr_cutoff)
 hmdb_valid_primary_enrich$enrichment_all %>% arrange(FDR, pvalue) %>% dplyr::select(class_level, class_label,
     n_foreground_class, n_foreground_total, n_background_class, n_background_total, fold_enrichment,
-    odds_ratio, pvalue, FDR, foreground_metabolites) %>% print(n = 50)
+    odds_ratio, pvalue, FDR, foreground_metabolites) %>% tibble::as_tibble() %>% print(n = 50)
 hmdb_valid_primary_enrich$enrichment_sig %>% arrange(FDR, pvalue) %>% select(class_level, class_label,
     n_foreground_class, n_background_class, fold_enrichment, pvalue, FDR, foreground_metabolites) %>%
-    print(n = 50)
+    tibble::as_tibble() %>% print(n = 50)
 write.csv(kiel_full, project_output(file.path(comparison_out_dir, "Blood_FBA_Kiel_standardized_full_results.csv"),
     name = "blood_fba_kiel_standardized_full_results.csv"), row.names = FALSE)
 write.csv(metac_full, project_output(file.path(comparison_out_dir, "Blood_FBA_MetaCardis_v2_standardized_full_results.csv"),

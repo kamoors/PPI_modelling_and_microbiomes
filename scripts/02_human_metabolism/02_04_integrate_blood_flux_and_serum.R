@@ -300,7 +300,7 @@ p_technical <- ggplot2::ggplot(technical_plot_data, ggplot2::aes(x = .data$beta_
     size = 3, show.legend = FALSE) + ggrepel::geom_text_repel(data = technical_labels, ggplot2::aes(label = stringr::str_trunc(.data$display_label,
     35)), size = 3, nudge_y = 0.012, force = 8, box.padding = grid::unit(1.5, "mm"), point.padding = grid::unit(2.5,
     "mm"), min.segment.length = 0, max.overlaps = Inf, max.time = 2, seed = 123, segment.colour = "#B0B0B0",
-    segment.linewidth = 0.35, colour = "#2F2F2F", family = "Arial", show.legend = FALSE) + ggplot2::annotate("text",
+    segment.size = 0.35, colour = "#2F2F2F", family = "Arial", show.legend = FALSE) + ggplot2::annotate("text",
     x = min(technical_plot_data$beta_kiel, na.rm = TRUE), y = max(technical_plot_data$beta_metacardis,
         na.rm = TRUE), hjust = 0, vjust = 1, size = 4, family = "Arial", colour = "#2F2F2F", label = paste0("Spearman ρ = ",
         formatC(technical_spearman, digits = 2, format = "f"), "\nConcordance = ", formatC(100 * technical_same_direction,
@@ -314,7 +314,7 @@ forest_block <- ((p_wbm | p_met)/patchwork::guide_area()) + patchwork::plot_layo
     legend.box.just = "center", legend.box = "horizontal", legend.direction = "horizontal", legend.text = ggplot2::element_text(size = 8),
     legend.spacing.x = grid::unit(5, "mm"), legend.margin = ggplot2::margin(1, 0, 1, 0))
 technical_row <- patchwork::free(p_technical)
-combined_figure <- (patchwork::free(technical_block)/forest_block) + patchwork::plot_layout(heights = c(2,
+combined_figure <- (technical_row/forest_block) + patchwork::plot_layout(heights = c(2,
     4.2), guides = "keep") + patchwork::plot_annotation(tag_levels = "A", theme = ggplot2::theme(plot.tag = ggplot2::element_text(family = "Arial",
     face = "bold", size = 14, colour = "#2F2F2F")))
 write_csv_safe(dplyr::arrange(dplyr::filter(wbm_annotated, .data$robust_wbm), .data$FDR), "01_WBM_robust_annotated.csv")

@@ -39,6 +39,8 @@ BiocManager::install("limma")
 
 For experimental 16S analysis, add `phyloseq`, `vegan` and `permute`. For RNA-seq, add `DESeq2`, `SummarizedExperiment`, `edgeR` and `limma` through BiocManager. Enrichment scripts also require the annotation and gene-set packages named in those scripts, including `org.Mm.eg.db`, `clusterProfiler`, `fgsea`, `msigdbr` and `GSVA`. Other dependencies are listed in the individual scripts.
 
+Blood-flux meta-analysis also requires `data.table`.
+
 Figure scripts use `ggplot2`, `ggrepel`, `cowplot`, `patchwork`, `scales`, `forcats` and `ggsignif`, alongside the packages for the corresponding analysis. With ggplot2 4, use cowplot >= 1.2.0 and patchwork >= 1.3.2. The figures use Arial; Cairo support and this font are needed to reproduce the typography. Supplementary workbook assembly uses `openxlsx`.
 
 ## Analyses
